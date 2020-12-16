@@ -1,0 +1,65 @@
+@import '../scss/Variables.scss';
+
+html
+{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  min-height: 100%;
+  background-color: $tertiary-color;
+}
+
+#root
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+input.form-control
+{
+  background-color: $tertiary-color;
+  border-color: darken($tertiary-color, 10%);
+  color: $secondary-color;
+  border-radius: 0.125rem;
+
+  &:focus
+  {
+    background-color: $tertiary-color;
+    border-color: $secondary-color;
+    color: $secondary-color;
+    box-shadow: none;
+  }
+
+  &::placeholder
+  {
+    color: $secondary-color;
+    opacity: 0.5;
+  }
+}
+
+span.input-group-text
+{
+  background-color: $secondary-color;
+  border-color: darken($secondary-color, 10%);
+  color: $tertiary-color;
+  border-radius: 0.125rem;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  font-family: $primary-font-family;
+}
+
+p
+{
+  font-family: $secondary-font-family;
+}
