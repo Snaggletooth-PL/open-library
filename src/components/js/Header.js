@@ -17,16 +17,16 @@ class Header extends React.Component {
 
                         <div className="px-md-5 mx-auto">
                             <div className="p-1 text-center">
-                                <Link to="#"><i class="fab fa-facebook"></i></Link>
-                                <Link to="#"><i class="fab fa-linkedin"></i></Link>
-                                <Link to="#"><i class="fab fa-twitter"></i></Link>
-                                <Link to="#"><i class="fab fa-instagram"></i></Link>
-                                <Link to="#"><i class="fab fa-pinterest"></i></Link>
-                                <Link to="#"><i class="fab fa-tumblr"></i></Link>
-                                <Link to="#"><i class="fab fa-youtube"></i></Link>
-                                <Link to="#"><i class="fab fa-facebook-messenger"></i></Link>
-                                <Link to="#"><i class="fab fa-skype"></i></Link>
-                                <Link to="#"><i class="fab fa-discord"></i></Link>
+                                <Link to="#"><i className="fab fa-facebook"></i></Link>
+                                <Link to="#"><i className="fab fa-linkedin"></i></Link>
+                                <Link to="#"><i className="fab fa-twitter"></i></Link>
+                                <Link to="#"><i className="fab fa-instagram"></i></Link>
+                                <Link to="#"><i className="fab fa-pinterest"></i></Link>
+                                <Link to="#"><i className="fab fa-tumblr"></i></Link>
+                                <Link to="#"><i className="fab fa-youtube"></i></Link>
+                                <Link to="#"><i className="fab fa-facebook-messenger"></i></Link>
+                                <Link to="#"><i className="fab fa-skype"></i></Link>
+                                <Link to="#"><i className="fab fa-discord"></i></Link>
                             </div>
                         </div>
 
