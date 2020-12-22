@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
-import Header from '../js/Header';
-import Body from '../js/Body';
-import Footer from '../js/Footer';
-import '../scss/App.scss';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
+import '../styles/App.scss';
 
-class App extends React.Component {
-    render() {
+class App extends React.Component
+{
+    render()
+    {
         return (
             <Router basename="/open-library">
                 <Header />

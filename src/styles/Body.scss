@@ -1,4 +1,4 @@
-@import '../scss/Variables.scss';
+@import '../styles/Variables.scss';
 
 .body
 {
@@ -7,7 +7,7 @@
     padding: $large-size;
 }
 
-.loader
+.loading
 {
     border: $x-small-size solid transparent;
     border-top: $x-small-size solid $secondary-color;

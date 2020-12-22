@@ -1,4 +1,4 @@
-@import '../scss/Variables.scss';
+@import '../styles/Variables.scss';
 
 html
 {
@@ -27,7 +27,7 @@ body
 div.input-group
 {
   border-radius: 0.25rem;
-  transition: box-shadow $low-transition-delay ease-in-out;
+  transition: box-shadow $short-duration ease-in-out;
 
   &:hover, &:focus-within
   {

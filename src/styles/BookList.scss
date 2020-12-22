@@ -1,0 +1,30 @@
+@import '../styles/Variables.scss';
+
+.book
+{
+    div.card
+    {
+        background-color: lighten($secondary-color, 12.5%);
+        border-color: transparent;
+        transition: box-shadow $short-duration;
+
+        &:hover
+        {
+            box-shadow: 0rem 0rem 2rem 0rem $primary-color;
+        }
+    }
+
+    a
+    {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    img
+    {
+        height: 100%;
+        max-width: 100%;
+        max-height: 200px;
+        border: 1px solid $primary-color;
+    }
+}
