@@ -23,3 +23,11 @@ export const isUnsignedNumber = (value) =>
 {
     return isNumber(value) && value > -1;
 }
+
+export const setActive = (object, condition) =>
+{
+    if (object instanceof Element)
+    {
+        object.classList.toggle('active', condition);
+    }
+}

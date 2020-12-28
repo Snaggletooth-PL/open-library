@@ -1,23 +1,23 @@
 import React from 'react';
 import Search from './Search';
-import SearchResult from './SearchResult';
+import BookList from './BookList';
 import { olApi, isValid } from './Utils';
 
 class Home extends React.Component
 {
-    state = { resultList: null, isSearching: false, errorMessage: '' };
+    state = { bookList: null, isSearching: false, errorMessage: '' };
 
-    onSearchSubmit = (searchPhrase) =>
+    onSearchSubmit = (searchPhrase, searchBy) =>
     {
-        this.setState({ resultList: null, isSearching: isValid(searchPhrase) });
+        this.setState({ bookList: null, isSearching: isValid(searchPhrase) });
 
-        olApi.get('search.json', { params: { title: searchPhrase } }).then((response) =>
+        olApi.get(`search.json?${ searchBy }=${ searchPhrase }`).then((response) =>
         {
             this.setState({ isSearching: false, errorMessage: '' });
 
             if (isValid(searchPhrase))
             {
-                this.setState({ resultList: response.data.docs });
+                this.setState({ bookList: response.data.docs });
             }
         }).catch(() =>
         {
@@ -34,9 +34,9 @@ class Home extends React.Component
     {
         let element = null;
 
-        if (this.state.resultList)
+        if (this.state.bookList)
         {
-            element = <SearchResult resultList={ this.state.resultList } />;
+            element = (this.state.bookList.length > 0) ? <BookList list={ this.state.bookList } /> : <p className="text-center text-danger">Nothing found...</p>;
         }
         else if (this.state.isSearching)
         {
@@ -56,7 +56,9 @@ class Home extends React.Component
                     <Search onSubmit={ this.onSearchSubmit } />
                 </div>
 
-                { element }
+                <div className="mx-4 p-2">
+                    { element }
+                </div>
 
             </div>
         );

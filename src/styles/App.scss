@@ -56,11 +56,24 @@ input.form-control
   }
 }
 
-span.input-group-text
+div.input-group-append
 {
-  background-color: $secondary-color;
-  border-color: $secondary-color;
-  color: $primary-color;
+  span.input-group-text, div.dropdown, div.dropdown-menu, a.dropdown-item, button.btn
+  {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+    color: $primary-color;
+  }
+
+  a.dropdown-item.active, div.dropdown:hover, a.dropdown-item:hover, button.btn:hover
+  {
+    background-color: darken($secondary-color, 5%);
+  }
+
+  button.btn:focus
+  {
+    box-shadow: none;
+  }
 }
 
 h1, h2, h3, h4, h5, h6
