@@ -1,10 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { setActive } from './Utils';
+import { DropdownMenu } from '../components';
+import { setActive } from '../Utils';
 
 class Search extends React.Component
 {
-    state = { searchPhrase: '', searchBy: 'title', dropdownItems: [] };
+    state = { searchPhrase: '', searchBy: 'title', searchByLabel: '', dropdownItems: [] };
+
+    setSearchByLabel()
+    {
+        this.setState({ searchByLabel: this.state.searchBy });
+    }
 
     setDropdownItemActive()
     {
@@ -24,6 +29,7 @@ class Search extends React.Component
     {
         this.setState({ searchBy: event.target.textContent }, () =>
         {
+            this.setSearchByLabel();
             this.setDropdownItemActive();
         });
     }
@@ -36,8 +42,9 @@ class Search extends React.Component
 
     componentDidMount()
     {
-        this.setState({ dropdownItems: document.querySelectorAll('a.dropdown-item') }, () =>
+        this.setState({ searchByLabel: document.querySelector('#searchByLabel'), dropdownItems: document.querySelectorAll('#searchByDropdownMenu > a.dropdown-item') }, () =>
         {
+            this.setSearchByLabel();
             this.setDropdownItemActive();
         });
     }
@@ -57,14 +64,11 @@ class Search extends React.Component
 
                         <div className="dropdown">
 
-                            <button className="btn btn-block dropdown-toggle h-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Search by
+                            <button className="btn btn-block dropdown-toggle rounded-0 h-100 caret-off" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Search by <span className="font-weight-bold">{ this.state.searchByLabel }</span>
                             </button>
 
-                            <div className="dropdown-menu dropdown-menu-right text-right">
-                                <Link className="dropdown-item" to="#" onClick={ this.onDropdownItemClick }>title</Link>
-                                <Link className="dropdown-item" to="#" onClick={ this.onDropdownItemClick }>author</Link>
-                            </div>
+                            <DropdownMenu id='searchByDropdownMenu' isRight={ true } onItemClick={ this.onDropdownItemClick } items={ ['title', 'author'] } />
 
                         </div>
 

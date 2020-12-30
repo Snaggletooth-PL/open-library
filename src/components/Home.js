@@ -1,7 +1,6 @@
 import React from 'react';
-import Search from './Search';
-import BookList from './BookList';
-import { olApi, isValid } from './Utils';
+import { BookList, ErrorMessage, Loader, Search } from '../components';
+import { olApi, isValid } from '../Utils';
 
 class Home extends React.Component
 {
@@ -36,15 +35,15 @@ class Home extends React.Component
 
         if (this.state.bookList)
         {
-            element = (this.state.bookList.length > 0) ? <BookList list={ this.state.bookList } /> : <p className="text-center text-danger">Nothing found...</p>;
+            element = (this.state.bookList.length > 0) ? <BookList list={ this.state.bookList } /> : <ErrorMessage message="Nothing found..." />;
         }
         else if (this.state.isSearching)
         {
-            element = <div className="loading"></div>;
+            element = <Loader />;
         }
         else if (this.state.errorMessage)
         {
-            element = <div className="text-center"><h4 className="text-danger">{ this.state.errorMessage }</h4></div>;
+            element = <ErrorMessage message={ this.state.errorMessage } />;
         }
 
         return (
@@ -56,9 +55,7 @@ class Home extends React.Component
                     <Search onSubmit={ this.onSearchSubmit } />
                 </div>
 
-                <div className="mx-4 p-2">
-                    { element }
-                </div>
+                { element }
 
             </div>
         );

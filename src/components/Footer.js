@@ -70,7 +70,7 @@ function Footer()
 
                 </div>
 
-                <p className="copyrightText">Copyright &copy; 2020 Konrad Rembowski</p>
+                <p className="copyright-text">Copyright &copy; 2020 Konrad Rembowski</p>
 
             </div>
         </footer>

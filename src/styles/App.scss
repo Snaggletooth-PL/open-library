@@ -13,6 +13,16 @@ body
   background-color: $tertiary-color;
 }
 
+h1, h2, h3, h4, h5, h6
+{
+  font-family: $primary-font-family;
+}
+
+p, input
+{
+  font-family: $secondary-font-family;
+}
+
 #root
 {
   position: absolute;
@@ -38,7 +48,7 @@ div.input-group
 input.form-control
 {
   background-color: lighten($secondary-color, 15%);
-  border-color: $secondary-color;
+  border-color: darken($secondary-color, 5%);
   color: $primary-color;
 
   &:focus
@@ -56,32 +66,31 @@ input.form-control
   }
 }
 
-div.input-group-append
+span.input-group-text, div.dropdown-menu, a.dropdown-item, button.btn
 {
-  span.input-group-text, div.dropdown, div.dropdown-menu, a.dropdown-item, button.btn
-  {
-    background-color: $secondary-color;
-    border-color: $secondary-color;
-    color: $primary-color;
-  }
+  background-color: $secondary-color;
+  border-color: darken($secondary-color, 5%);
+  color: $primary-color;
+}
 
-  a.dropdown-item.active, div.dropdown:hover, a.dropdown-item:hover, button.btn:hover
-  {
-    background-color: darken($secondary-color, 5%);
-  }
+a.dropdown-item.active, a.dropdown-item:hover, button.btn:hover
+{
+  background-color: darken($secondary-color, 5%);
+  color: $primary-color;
+}
 
-  button.btn:focus
+button.btn
+{
+  &:hover, &:focus
   {
     box-shadow: none;
   }
 }
 
-h1, h2, h3, h4, h5, h6
+.caret-off
 {
-  font-family: $primary-font-family;
-}
-
-p, input
-{
-  font-family: $secondary-font-family;
+  &::before, &::after
+  {
+    display: none;
+  }
 }

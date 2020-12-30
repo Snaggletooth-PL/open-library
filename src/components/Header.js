@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Nav from './Nav';
+import { Nav } from '../components';
 import '../styles/Header.scss';
 
 function Header()
@@ -11,7 +11,7 @@ function Header()
 
                 <div className="d-flex flex-column flex-sm-row justify-content-between mx-auto">
 
-                    <div className="px-md-5 mx-auto welcomeText">
+                    <div className="px-md-5 mx-auto welcome-text">
                         <p className="text-center p-1 m-0">Welcome to OpenLibrary</p>
                     </div>
 

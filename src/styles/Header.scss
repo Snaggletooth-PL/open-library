@@ -7,7 +7,7 @@ header
     box-shadow: 0rem 0.25rem 2rem 0.25rem $primary-color;
 }
 
-.welcomeText
+.welcome-text
 {
     font-weight: bold;
 }
@@ -94,7 +94,7 @@ header
     }
 }
 
-.navButton
+.nav-button
 {
     display: inline-block;
     color: $tertiary-color;
@@ -107,7 +107,7 @@ header
     }
 }
 
-.navList
+.nav-list
 {
     display: flex;
     flex-direction: column;

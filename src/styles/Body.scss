@@ -6,28 +6,3 @@
     color: darken($primary-color, 12.5%);
     padding: $large-size;
 }
-
-.loading
-{
-    border: $x-small-size solid transparent;
-    border-top: $x-small-size solid $secondary-color;
-    border-bottom: $x-small-size solid $secondary-color;
-    border-radius: 50%;
-    width: $xxx-large-size;
-    height: $xxx-large-size;
-    margin: $medium-size auto $medium-size auto;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin
-{
-    100%
-    { 
-        transform: rotate(360deg);
-    }
-
-    0%
-    { 
-        transform: rotate(0deg);
-    }
-}
