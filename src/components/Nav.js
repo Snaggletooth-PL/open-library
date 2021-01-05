@@ -1,51 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getPage } from '../Utils';
 
-class Nav extends React.Component
+function Nav(props)
 {
-    state = { links: [] };
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark justify-content-between align-items-center p-0">
 
-    setCurrentPage = () =>
-    {
-        let currentPage = getPage(window.location.href);
+            <Link className="logotype" to="#"><h1>Open</h1><h1>Library</h1></Link>
 
-        for (let i = 0; i < this.state.links.length; ++i)
-        {
-            this.state.links[i].parentElement.classList.toggle('current', getPage(this.state.links[i].href) === currentPage);
-        }
-    }
+            <button className="btn nav-button" type="button" data-toggle="collapse" data-target="#navbarList" aria-expanded="false" aria-controls="navbarList">
+                <i className="fas fa-bars align-middle"></i><span className="d-none d-md-inline align-middle ml-2">Menu</span>
+            </button>
 
-    componentDidMount()
-    {
-        this.setState({ links: document.querySelectorAll('.nav-list > li > a') }, () =>
-        {
-            this.setCurrentPage();
-        });
-    }
+            <div id="navbarList" className="collapse navbar-collapse">
+                <ul className={ props.navListClassName }>
+                    <li onClick={ props.setCurrentPage }><Link to="/">Home</Link></li>
+                    <li onClick={ props.setCurrentPage }><Link to="/about">About</Link></li>
+                    <li onClick={ props.setCurrentPage }><Link to="/contact">Contact</Link></li>
+                </ul>
+            </div>
 
-    render()
-    {
-        return (
-            <nav className="navbar navbar-expand-lg navbar-dark justify-content-between align-items-center p-0">
-
-                <Link className="logotype" to="#"><h1>Open</h1><h1>Library</h1></Link>
-
-                <button className="btn nav-button" type="button" data-toggle="collapse" data-target="#navbarList" aria-expanded="false" aria-controls="navbarList">
-                    <i className="fas fa-bars align-middle"></i><span className="d-none d-md-inline align-middle ml-2">Menu</span>
-                </button>
-
-                <div id="navbarList" className="collapse navbar-collapse">
-                    <ul className="nav-list">
-                        <li onClick={ this.setCurrentPage }><Link to="/">Home</Link></li>
-                        <li onClick={ this.setCurrentPage }><Link to="/about">About</Link></li>
-                        <li onClick={ this.setCurrentPage }><Link to="/contact">Contact</Link></li>
-                    </ul>
-                </div>
-
-            </nav>
-        );
-    }
+        </nav>
+    );
 }
 
 export default Nav;

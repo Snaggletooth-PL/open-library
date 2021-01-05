@@ -1,11 +1,9 @@
 import React from 'react';
 import '../styles/Loader.scss'
 
-const Loader = () =>
+function Loader()
 {
-    return (
-        <div className="loader"></div>
-    );
+    return <div className="loader"></div>;
 }
 
 export default Loader;

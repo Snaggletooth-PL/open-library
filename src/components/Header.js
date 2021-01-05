@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Nav } from '../components';
+import { NavContainer } from '../components';
 import '../styles/Header.scss';
 
 function Header()
@@ -32,7 +32,7 @@ function Header()
 
                 </div>
 
-                <Nav />
+                <NavContainer />
 
             </div>
         </header>

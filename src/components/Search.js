@@ -1,86 +1,37 @@
 import React from 'react';
 import { DropdownMenu } from '../components';
-import { setActive } from '../Utils';
 
-class Search extends React.Component
+function Search(props)
 {
-    state = { searchPhrase: '', searchBy: 'title', searchByLabel: '', dropdownItems: [] };
+    return (
+        <form onSubmit={ props.onSubmit }>
 
-    setSearchByLabel()
-    {
-        this.setState({ searchByLabel: this.state.searchBy });
-    }
+            <h3 className="text-center mb-3">Search books</h3>
 
-    setDropdownItemActive()
-    {
-        for (let i = 0; i < this.state.dropdownItems.length; ++i)
-        {
-            let dropdownItem = this.state.dropdownItems[i];
-            setActive(dropdownItem, dropdownItem.textContent === this.state.searchBy);
-        }
-    }
+            <div className="input-group input-group-lg">
 
-    onInputChange = (event) =>
-    {
-        this.setState({ searchPhrase: event.target.value });
-    }
+                <input type="text" className="form-control" placeholder="Search" onChange={ props.onInputChange } />
 
-    onDropdownItemClick = (event) =>
-    {
-        this.setState({ searchBy: event.target.textContent }, () =>
-        {
-            this.setSearchByLabel();
-            this.setDropdownItemActive();
-        });
-    }
+                <div className="input-group-append">
 
-    onSubmit = (event) =>
-    {
-        event.preventDefault();
-        this.props.onSubmit(this.state.searchPhrase, this.state.searchBy);
-    }
+                    <div className="dropdown">
 
-    componentDidMount()
-    {
-        this.setState({ searchByLabel: document.querySelector('#searchByLabel'), dropdownItems: document.querySelectorAll('#searchByDropdownMenu > a.dropdown-item') }, () =>
-        {
-            this.setSearchByLabel();
-            this.setDropdownItemActive();
-        });
-    }
+                        <button className="btn btn-block dropdown-toggle rounded-0 h-100 caret-off" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Search by <span className="font-weight-bold">{ props.searchByLabel }</span>
+                        </button>
 
-    render()
-    {
-        return (
-            <form onSubmit={ this.onSubmit }>
-
-                <h3 className="text-center mb-3">Search books</h3>
-
-                <div className="input-group input-group-lg">
-
-                    <input type="text" className="form-control" placeholder="Search" onChange={ this.onInputChange } />
-
-                    <div className="input-group-append">
-
-                        <div className="dropdown">
-
-                            <button className="btn btn-block dropdown-toggle rounded-0 h-100 caret-off" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Search by <span className="font-weight-bold">{ this.state.searchByLabel }</span>
-                            </button>
-
-                            <DropdownMenu id='searchByDropdownMenu' isRight={ true } onItemClick={ this.onDropdownItemClick } items={ ['title', 'author'] } />
-
-                        </div>
-
-                        <span className="input-group-text"><i className="fas fa-search fa-flip-horizontal"></i></span>
+                        <DropdownMenu id={ props.searchByDropdownMenuId } isRight={ true } onItemClick={ props.onSearchByDropdownMenuItemClick } items={ ['title', 'author'] } />
 
                     </div>
 
+                    <span className="input-group-text"><i className="fas fa-search fa-flip-horizontal"></i></span>
+
                 </div>
 
-            </form>
-        );
-    }
+            </div>
+
+        </form>
+    );
 }
 
 export default Search;

@@ -6,7 +6,7 @@ export const getPage = (path) =>
 {
     let substrings = path.split('/');
 
-    return '/' + substrings[substrings.length - 1];
+    return substrings[substrings.length - 1];
 }
 
 export const isValid = (value) =>
@@ -21,7 +21,7 @@ export const isNumber = (value) =>
 
 export const isUnsignedNumber = (value) =>
 {
-    return isNumber(value) && value > -1;
+    return isNumber(value) && value >= 0;
 }
 
 export const setActive = (object, condition) =>
