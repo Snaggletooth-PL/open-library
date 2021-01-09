@@ -1,11 +1,12 @@
 import React from 'react';
+import { PageHeader } from '../components';
 
 function About()
 {
     return (
         <div>
 
-            <h2 className="font-weight-bold"><i className="fas fa-info-circle"></i> About</h2>
+            <PageHeader iconClassName="fas fa-info-circle" headerName="About" />
 
         </div>
     );

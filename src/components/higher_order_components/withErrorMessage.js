@@ -1,7 +1,7 @@
 import React from 'react';
 import { ErrorMessage } from '../../components';
 
-const withErrorHandling = Component =>
+const withErrorMessage = (Component) =>
 {
     return class extends React.Component
     {
@@ -16,7 +16,7 @@ const withErrorHandling = Component =>
 
             return <Component { ...restProps } />;
         }
-    }
-}
+    };
+};
 
-export default withErrorHandling;
+export default withErrorMessage;

@@ -1,0 +1,2 @@
+export const FETCH_BOOK_LIST = 'FETCH_BOOK_LIST';
+export const CLEAR_BOOK_LIST = 'CLEAR_BOOK_LIST';

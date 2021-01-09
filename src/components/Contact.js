@@ -1,11 +1,12 @@
 import React from 'react';
+import { PageHeader } from '../components';
 
 function Contact()
 {
     return (
         <div>
 
-            <h2 className="font-weight-bold"><i className="fas fa-phone"></i> Contact</h2>
+            <PageHeader iconClassName="fas fa-phone" headerName="Contact" />
 
         </div>
     );

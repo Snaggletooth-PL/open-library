@@ -1,2 +1,2 @@
-export { default as withErrorHandling } from './withErrorHandling';
+export { default as withErrorMessage } from './withErrorMessage';
 export { default as withLoading } from './withLoading';

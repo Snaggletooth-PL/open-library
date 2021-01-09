@@ -23,7 +23,7 @@ class SearchContainer extends React.Component
     onInputChange = (event) =>
     {
         this.setState({ searchPhrase: event.target.value });
-    }
+    };
 
     onSearchByDropdownMenuItemClick = (event) =>
     {
@@ -32,13 +32,13 @@ class SearchContainer extends React.Component
             this.setSearchByLabel();
             this.setSearchByDropdownMenuItemActive();
         });
-    }
+    };
 
     onSubmit = (event) =>
     {
         event.preventDefault();
         this.props.onSubmit(this.state.searchPhrase, this.state.searchBy);
-    }
+    };
 
     componentDidMount()
     {

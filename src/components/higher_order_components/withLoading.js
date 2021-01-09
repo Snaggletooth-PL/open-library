@@ -1,7 +1,7 @@
 import React from 'react';
 import { Loader } from '../../components';
 
-const withLoading = Component =>
+const withLoading = (Component) =>
 {
     return class extends React.Component
     {
@@ -16,7 +16,7 @@ const withLoading = Component =>
 
             return <Component { ...restProps } />;
         }
-    }
-}
+    };
+};
 
 export default withLoading;

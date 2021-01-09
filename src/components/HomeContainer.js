@@ -1,35 +1,56 @@
 import React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { fetchBookList, clearBookList } from '../redux/actions';
 import { BookList, Home } from '../components';
-import { withErrorHandling, withLoading } from './higher_order_components';
+import { withErrorMessage, withLoading } from './higher_order_components';
 import { olApi, isValid } from '../Utils';
 
-const BookListWithErrorHandlingAndLoading = compose(withErrorHandling, withLoading)(BookList);
+const BookListWithErrorHandlingAndLoading = compose(withErrorMessage, withLoading)(BookList);
 
 class HomeContainer extends React.Component
 {
-    state = { bookList: [], isSearching: false, errorMessage: '' };
+    state = { isSearching: false, errorMessage: '' };
 
     onSearchSubmit = (searchPhrase, searchBy) =>
     {
-        this.setState({ bookList: [], isSearching: isValid(searchPhrase), errorMessage: '' });
+        this.setState({ isSearching: isValid(searchPhrase), errorMessage: '' });
+        this.props.clearBookList();
 
         if (isValid(searchPhrase))
         {
             olApi.get(`search.json?${ searchBy }=${ searchPhrase }`).then((response) =>
             {
-                this.setState((response.data.docs.length > 0) ? { isSearching: false, bookList: response.data.docs } : { isSearching: false, errorMessage: 'Nothing found...' });
+                this.setState({ isSearching: false });
+                let list = response.data.docs;
+
+                if (list.length > 0)
+                {
+                    this.props.fetchBookList(list);
+                }
+                else
+                {
+                    this.setState({ errorMessage: 'Nothing found...' });
+                }
             }).catch(() =>
             {
                 this.setState({ isSearching: false, errorMessage: 'Search failed!' });
             });
         }
-    }
+    };
 
     render()
     {
-        return <Home onSearchSubmit={ this.onSearchSubmit } bookList={ <BookListWithErrorHandlingAndLoading errorMessage={ this.state.errorMessage } isLoading={ this.state.isSearching } list={ this.state.bookList } /> } />;
+        return <Home onSearchSubmit={ this.onSearchSubmit } bookList={ <BookListWithErrorHandlingAndLoading errorMessage={ this.state.errorMessage } isLoading={ this.state.isSearching }
+            list={ this.props.bookList } /> } />;
     }
 }
 
-export default HomeContainer;
+const mapStateToProps = (state) =>
+{
+    return { bookList: state.bookList };
+};
+
+const mapDispatchToProps = { fetchBookList, clearBookList };
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

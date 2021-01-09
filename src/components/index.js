@@ -13,5 +13,6 @@ export { default as HomeContainer } from './HomeContainer';
 export { default as Loader } from './Loader';
 export { default as Nav } from './Nav';
 export { default as NavContainer } from './NavContainer';
+export { default as PageHeader } from './PageHeader';
 export { default as Search } from './Search';
 export { default as SearchContainer } from './SearchContainer';

@@ -1,12 +1,12 @@
 import React from 'react';
-import { SearchContainer } from '../components';
+import { PageHeader, SearchContainer } from '../components';
 
 function Home(props)
 {
     return (
         <div>
 
-            <h2 className="font-weight-bold"><i className="fas fa-home"></i> Home</h2>
+            <PageHeader iconClassName="fas fa-home" headerName="Home" />
 
             <div className="m-4">
                 <SearchContainer onSubmit={ props.onSearchSubmit } />

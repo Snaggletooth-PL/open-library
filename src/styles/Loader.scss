@@ -9,7 +9,7 @@
     width: $xxx-large-size;
     height: $xxx-large-size;
     margin: $medium-size auto $medium-size auto;
-    animation: spin 1s linear infinite;
+    animation: spin $x-long-duration linear infinite;
 }
 
 @keyframes spin
