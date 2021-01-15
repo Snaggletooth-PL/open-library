@@ -24,6 +24,11 @@ export const isUnsignedNumber = (value) =>
     return isNumber(value) && value >= 0;
 };
 
+export const isBoolean = (value) =>
+{
+    return typeof value === 'boolean';
+}
+
 export const setActive = (object, condition) =>
 {
     if (object instanceof Element)

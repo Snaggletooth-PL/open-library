@@ -17,7 +17,7 @@ function Search(props)
                     <div className="dropdown">
 
                         <button className="btn btn-block dropdown-toggle rounded-0 h-100 caret-off" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Search by <span className="font-weight-bold">{ props.searchByLabel }</span>
+                            <span className="d-none d-md-inline">Search by</span> <span className="font-weight-bold">{ props.searchByLabel }</span>
                         </button>
 
                         <DropdownMenu id={ props.searchByDropdownMenuId } isRight={ true } onItemClick={ props.onSearchByDropdownMenuItemClick } items={ ['title', 'author'] } />

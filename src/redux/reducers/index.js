@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
-import { bookList } from './fetchBookList';
+import { bookList } from './bookList';
+import { bookListFilters } from './bookListFilters';
 
-export default combineReducers({ bookList });
+export default combineReducers({ bookList, bookListFilters });

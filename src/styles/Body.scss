@@ -6,3 +6,19 @@
     color: darken($primary-color, 12.5%);
     padding: $large-size;
 }
+
+.horizontal-divider
+{
+    height: 0;
+    margin: $x-small-size 0;
+    overflow: hidden;
+    border-top: 1px solid $primary-color;
+}
+
+.vertical-divider
+{
+    width: 0;
+    margin: 0 $x-small-size;
+    overflow: hidden;
+    border-left: 1px solid $primary-color;
+}

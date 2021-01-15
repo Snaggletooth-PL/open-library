@@ -18,9 +18,21 @@ h1, h2, h3, h4, h5, h6
   font-family: $primary-font-family;
 }
 
-p, input, label
+p, input, label, span, small
 {
   font-family: $secondary-font-family;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]
+{
+  -moz-appearance: textfield;
+  margin: 0;
 }
 
 #root
@@ -81,10 +93,18 @@ a.dropdown-item.active, a.dropdown-item:hover, button.btn:hover
 
 button.btn
 {
+  font-family: $secondary-font-family;
+  
   &:hover, &:focus
   {
     box-shadow: none;
   }
+}
+
+span.badge
+{
+  color: $primary-color;
+  background-color: $secondary-color;
 }
 
 .caret-off

@@ -2,6 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { fetchBookList, clearBookList } from '../redux/actions';
+import { getFilteredBookList } from '../redux/selectors';
 import { BookList, Home } from '../components';
 import { withErrorMessage, withLoading } from './higher_order_components';
 import { olApi, isValid } from '../Utils';
@@ -10,7 +11,7 @@ const BookListWithErrorHandlingAndLoading = compose(withErrorMessage, withLoadin
 
 class HomeContainer extends React.Component
 {
-    state = { isSearching: false, errorMessage: '' };
+    state = { isSearching: false, errorMessage: (this.props.bookList.length > 0) ? '' : ' ' };
 
     onSearchSubmit = (searchPhrase, searchBy) =>
     {
@@ -37,6 +38,10 @@ class HomeContainer extends React.Component
                 this.setState({ isSearching: false, errorMessage: 'Search failed!' });
             });
         }
+        else
+        {
+            this.setState({ errorMessage: ' ' });
+        }
     };
 
     render()
@@ -48,7 +53,7 @@ class HomeContainer extends React.Component
 
 const mapStateToProps = (state) =>
 {
-    return { bookList: state.bookList };
+    return { bookList: getFilteredBookList(state.bookList, state.bookListFilters) };
 };
 
 const mapDispatchToProps = { fetchBookList, clearBookList };
