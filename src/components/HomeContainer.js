@@ -2,10 +2,10 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { fetchBookList, clearBookList } from '../redux/actions';
-import { getFilteredBookList } from '../redux/selectors';
+import { getFilteredBookList, getSortedBookList, getPaginatedBookList } from '../redux/selectors';
 import { BookList, Home } from '../components';
 import { withErrorMessage, withLoading } from './higher_order_components';
-import { olApi, isValid } from '../Utils';
+import { olApi, isValid } from '../utils';
 
 const BookListWithErrorHandlingAndLoading = compose(withErrorMessage, withLoading)(BookList);
 
@@ -25,7 +25,7 @@ class HomeContainer extends React.Component
                 this.setState({ isSearching: false });
                 let list = response.data.docs;
 
-                if (list.length > 0)
+                if (list.length)
                 {
                     this.props.fetchBookList(list);
                 }
@@ -47,13 +47,15 @@ class HomeContainer extends React.Component
     render()
     {
         return <Home onSearchSubmit={ this.onSearchSubmit } bookList={ <BookListWithErrorHandlingAndLoading errorMessage={ this.state.errorMessage } isLoading={ this.state.isSearching }
-            list={ this.props.bookList } /> } />;
+            list={ this.props.bookList } currentNumberOfBooks={ this.props.currentNumberOfBooks } /> } />;
     }
 }
 
 const mapStateToProps = (state) =>
 {
-    return { bookList: getFilteredBookList(state.bookList, state.bookListFilters) };
+    let filteredBookList = getFilteredBookList(state.bookList, state.bookListFilter);
+
+    return { bookList: getPaginatedBookList(getSortedBookList(filteredBookList, state.bookListSort), state.bookListPagination), currentNumberOfBooks: filteredBookList.length };
 };
 
 const mapDispatchToProps = { fetchBookList, clearBookList };

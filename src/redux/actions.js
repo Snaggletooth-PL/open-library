@@ -11,33 +11,57 @@ export const clearBookList = () =>
     type: ActionTypes.CLEAR_BOOK_LIST
 });
 
-export const filterBookListByAuthorAvailability = (isFilterBookListByAuthorAvailabilityEnabled) =>
+export const filterBookListByAuthorAvailability = (onlyWithAuthorAvailable) =>
 ({
     type: ActionTypes.FILTER_BOOK_LIST_BY_AUTHOR_AVAILABILITY,
-    isFilterBookListByAuthorAvailabilityEnabled
+    onlyWithAuthorAvailable
 });
 
-export const filterBookListByCoverAvailability = (isFilterBookListByCoverAvailabilityEnabled) =>
+export const filterBookListByCoverAvailability = (onlyWithCoverAvailable) =>
 ({
     type: ActionTypes.FILTER_BOOK_LIST_BY_COVER_AVAILABILITY,
-    isFilterBookListByCoverAvailabilityEnabled
+    onlyWithCoverAvailable
 });
 
-export const filterBookListByYearAvailability = (isFilterBookListByYearAvailabilityEnabled) =>
+export const filterBookListByYearAvailability = (onlyWithYearAvailable) =>
 ({
     type: ActionTypes.FILTER_BOOK_LIST_BY_YEAR_AVAILABILITY,
-    isFilterBookListByYearAvailabilityEnabled
+    onlyWithYearAvailable
 });
 
-export const filterBookListByYearRange = (filterBookListByYearRangeMinYear, filterBookListByYearRangeMaxYear) =>
+export const filterBookListByYearRange = (minYear, maxYear) =>
 ({
     type: ActionTypes.FILTER_BOOK_LIST_BY_YEAR_RANGE,
-    filterBookListByYearRangeMinYear,
-    filterBookListByYearRangeMaxYear
+    minYear,
+    maxYear
 });
 
-export const filterBookListBySubjects = (filterBookListBySubjectsTagList) =>
+export const filterBookListBySubjects = (subjects) =>
 ({
     type: ActionTypes.FILTER_BOOK_LIST_BY_SUBJECTS,
-    filterBookListBySubjectsTagList
+    subjects
+});
+
+export const sortBookListByKey = (sortKey) =>
+({
+    type: ActionTypes.SORT_BOOK_LIST_BY_KEY,
+    sortKey
+});
+
+export const sortBookListByOrder = (sortOrder) =>
+({
+    type: ActionTypes.SORT_BOOK_LIST_BY_ORDER,
+    sortOrder
+});
+
+export const paginateBookListByPageSize = (pageSize) =>
+({
+    type: ActionTypes.PAGINATE_BOOK_LIST_BY_PAGE_SIZE,
+    pageSize
+});
+
+export const paginateBookListByCurrentPage = (currentPage) =>
+({
+    type: ActionTypes.PAGINATE_BOOK_LIST_BY_CURRENT_PAGE,
+    currentPage
 });

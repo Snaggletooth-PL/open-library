@@ -1,6 +1,6 @@
 import React from 'react';
-import { Tag } from '../components';
-import { isValid } from '../Utils';
+import { Link } from 'react-router-dom';
+import { isValid } from '../utils';
 
 function TagList(props)
 {
@@ -8,11 +8,11 @@ function TagList(props)
 
     if (isValid(props.tags))
     {
-        let array = Array.isArray(props.tags) ? props.tags : Array.from(props.tags);
+        let tagArray = Array.from(props.tags);
 
-        for (let i = 0; i < array.length; ++i)
+        for (let i = 0; i < tagArray.length; ++i)
         {
-            tags.push(<Tag key={ i } tagName={ array[i] } onClick={ props.onClick } />);
+            tags.push(<Link key={ 'tag' + i } className="text-reset text-decoration-none" to="#" onClick={ props.onTagClick }><span className="badge m-1">{ tagArray[i] }</span></Link>);
         }
     }
 

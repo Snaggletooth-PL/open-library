@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { isValid } from '../Utils';
+import { isValid } from '../utils';
 
 function DropdownMenu(props)
 {
@@ -8,16 +8,16 @@ function DropdownMenu(props)
 
     if (isValid(props.items))
     {
-        let array = Array.isArray(props.items) ? props.items : Array.from(props.items);
+        let itemArray = Array.from(props.items);
 
-        for (let i = 0; i < array.length; ++i)
+        for (let i = 0; i < itemArray.length; ++i)
         {
-            items.push(<Link key={ i } className="dropdown-item" to="#" onClick={ props.onItemClick }>{ array[i] }</Link>);
+            items.push(<Link key={ 'dropdownMenuItem' + i } className="dropdown-item" to="#" onClick={ props.onDropdownMenuItemClick }>{ itemArray[i] }</Link>);
         }
     }
 
     return (
-        <div id={ props.id } className={ "dropdown-menu " + (props.isRight ? "dropdown-menu-right text-right" : "dropdown-menu-left text-left") }>
+        <div className={ "dropdown-menu " + (props.isRight ? "dropdown-menu-right text-right" : "dropdown-menu-left text-left") }>
             { items }
         </div>
     );

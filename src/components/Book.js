@@ -1,12 +1,13 @@
 import React from 'react';
-import { isValid, isUnsignedNumber } from '../Utils';
+import { bookProperty, isValid, isUnsignedNumber } from '../utils';
+import '../styles/Book.scss';
 
 function Book(props)
 {
-    let cover = props.book.cover_i;
-    let title = props.book.title;
-    let author = props.book.author_name;
-    let publishYear = props.book.first_publish_year;
+    let cover = props.book[bookProperty.coverId];
+    let title = props.book[bookProperty.title];
+    let author = props.book[bookProperty.author];
+    let year = props.book[bookProperty.year];
 
     return (
         <div className="book col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -20,7 +21,7 @@ function Book(props)
 
                     <p className="card-text mb-2">{ isValid(author) ? author.join(', ') : 'Unknown author' }</p>
 
-                    <small className="card-text">{ isUnsignedNumber(publishYear) ? publishYear : 'Unknown year' }</small>
+                    <small className="card-text">{ isUnsignedNumber(year) ? year : 'Unknown year' }</small>
 
                 </div>
 

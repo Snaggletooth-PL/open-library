@@ -20,7 +20,7 @@ function Search(props)
                             <span className="d-none d-md-inline">Search by</span> <span className="font-weight-bold">{ props.searchByLabel }</span>
                         </button>
 
-                        <DropdownMenu id={ props.searchByDropdownMenuId } isRight={ true } onItemClick={ props.onSearchByDropdownMenuItemClick } items={ ['title', 'author'] } />
+                        <DropdownMenu isRight={ true } onDropdownMenuItemClick={ props.onSearchByDropdownMenuItemClick } items={ ['title', 'author'] } />
 
                     </div>
 

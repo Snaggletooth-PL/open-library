@@ -1,0 +1,34 @@
+import axios from 'axios';
+
+export const bookProperty =
+{
+    key: 'key',
+    title: 'title',
+    author: 'author_name',
+    year: 'first_publish_year',
+    subjects: 'subject',
+    coverId: 'cover_i'
+};
+
+export const sortKey =
+{
+    title: 'title',
+    author: 'author',
+    year: 'year'
+};
+
+export const sortOrder =
+{
+    ascending: true,
+    descending: false
+};
+
+export const pagination =
+{
+    previousPage: '<',
+    nextPage: '>',
+    firstPage: 1,
+    pageSizes: [10, 25, 50, 100]
+};
+
+export const olApi = axios.create({ baseURL: 'https://openlibrary.org/' });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TagList } from '../components';
 
-function BookListFilters(props)
+function BookListFilter(props)
 {
     return (
         <div className="mx-auto">
@@ -14,8 +14,8 @@ function BookListFilters(props)
 
                 <div className="form-check mx-1 m-lg-0">
 
-                    <input id="filterBookListByAuthorAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.isFilterBookListByAuthorAvailabilityEnabled }
-                        onChange={ props.onFilterBookListByAuthorAvailabilityCheckboxChange } />
+                    <input id="filterBookListByAuthorAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.onlyWithAuthorAvailable }
+                        onChange={ props.onOnlyWithAuthorAvailableCheckboxChange } />
 
                     <label className="form-check-label" htmlFor="filterBookListByAuthorAvailabilityCheckbox">Show only books with known author</label>
 
@@ -23,8 +23,8 @@ function BookListFilters(props)
 
                 <div className="form-check mx-1 m-lg-0">
 
-                    <input id="filterBookListByCoverAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.isFilterBookListByCoverAvailabilityEnabled }
-                        onChange={ props.onFilterBookListByCoverAvailabilityCheckboxChange } />
+                    <input id="filterBookListByCoverAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.onlyWithCoverAvailable }
+                        onChange={ props.onlyWithCoverAvailableCheckboxChange } />
 
                     <label className="form-check-label" htmlFor="filterBookListByCoverAvailabilityCheckbox">Show only books with cover</label>
 
@@ -32,8 +32,8 @@ function BookListFilters(props)
 
                 <div className="form-check mx-1 m-lg-0">
 
-                    <input id="filterBookListByYearAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.isFilterBookListByYearAvailabilityEnabled }
-                        onChange={ props.onFilterBookListByYearAvailabilityCheckboxChange } />
+                    <input id="filterBookListByYearAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.onlyWithYearAvailable }
+                        onChange={ props.onlyWithYearAvailableCheckboxChange } />
 
                     <label className="form-check-label" htmlFor="filterBookListByYearAvailabilityCheckbox">Show only books with known year</label>
 
@@ -53,19 +53,17 @@ function BookListFilters(props)
                         <span className="input-group-text">from</span>
                     </div>
 
-                    <input type="number" className="form-control" value={ props.filterBookListByYearRangeMinYear }
-                        onChange={ props.onFilterBookListByYearRangeMinYearInputChange } />
+                    <input type="number" className="form-control" value={ props.minYear } onChange={ props.onMinYearInputChange } />
 
                     <div className="input-group-prepend input-group-append">
                         <span className="input-group-text">to</span>
                     </div>
 
-                    <input type="number" className="form-control" value={ props.filterBookListByYearRangeMaxYear }
-                        onChange={ props.onFilterBookListByYearRangeMaxYearInputChange } />
+                    <input type="number" className="form-control" value={ props.maxYear } onChange={ props.onMaxYearInputChange } />
 
                 </div>
 
-                <button type="button" className="btn btn-sm btn-block" onClick={ props.onFilterBookListByYearRangeResetButtonClick }>Reset</button>
+                <button type="button" className="btn btn-sm btn-block" onClick={ props.onYearRangeResetButtonClick }>Reset</button>
 
             </div>
 
@@ -77,7 +75,7 @@ function BookListFilters(props)
 
                 <div className="input-group input-group-sm mb-1">
 
-                    <input type="text" className="form-control" onKeyUp={ props.onFilterBookListBySubjectsInputKeyUp } />
+                    <input type="text" className="form-control" onKeyUp={ props.onSubjectsInputKeyUp } />
 
                     <div className="input-group-append">
                         <span className="input-group-text"><i className="fas fa-hashtag"></i></span>
@@ -85,12 +83,11 @@ function BookListFilters(props)
 
                 </div>
 
-                { (props.filterBookListBySubjectsTagList.length > 0) ? <small className="mx-auto">Click on tag to remove</small> : null }
+                { (props.subjects.length) ? <small className="mx-auto">Click on tag to remove</small> : null }
 
-                <TagList tags={ props.filterBookListBySubjectsTagList } onClick={ props.onFilterBookListBySubjectsTagClick } />
+                <TagList tags={ props.subjects } onTagClick={ props.onSubjectTagClick } />
 
-                { (props.filterBookListBySubjectsTagList.length > 0) ?
-                    <button type="button" className="btn btn-sm btn-block" onClick={ props.onFilterBookListBySubjectsClearButtonClick }>Clear</button> : null }
+                { (props.subjects.length) ? <button type="button" className="btn btn-sm btn-block" onClick={ props.onSubjectsClearButtonClick }>Clear</button> : null }
 
             </div>
 
@@ -98,4 +95,4 @@ function BookListFilters(props)
     );
 }
 
-export default BookListFilters;
+export default BookListFilter;

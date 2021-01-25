@@ -1,0 +1,26 @@
+@import '../styles/Variables.scss';
+
+ul.pagination
+{   
+    li.page-item, a.page-link
+    {
+        color: $primary-color;
+        background-color: $secondary-color;
+        border-color: darken($secondary-color, 5%);
+        box-shadow: none;
+    }
+
+    li.page-item.active > a.page-link
+    {
+        color: $tertiary-color;
+        background-color: darken($secondary-color, 10%);
+        border-color: darken($secondary-color, 12.5%);
+    }
+
+    li.page-item.disabled > a.page-link
+    {
+        color: lighten($primary-color, 15%);
+        background-color: lighten($secondary-color, 10%);
+        border-color: lighten($secondary-color, 7.5%);
+    }
+}
