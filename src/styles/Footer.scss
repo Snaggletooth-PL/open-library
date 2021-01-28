@@ -1,18 +1,18 @@
 @import '../styles/Variables.scss';
 
-footer
-{
-    background-color: $primary-color;
-    color: $tertiary-color;
-    box-shadow: 0rem -0.25rem 2rem 0.25rem $primary-color;
-}
-
 .copyright-text
 {
     font-weight: bold;
     font-size: small;
     text-align: center;
     margin: 0;
-    padding: 0.5rem;
+    padding: $x-small-size;
     border-top: 1px solid $tertiary-color;
+}
+
+footer
+{
+    background-color: $primary-color;
+    color: $tertiary-color;
+    box-shadow: 0 (-$xx-small-size) $large-size $xx-small-size $primary-color;
 }

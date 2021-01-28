@@ -1,0 +1,7 @@
+@import '../styles/Variables.scss';
+
+span.badge
+{
+  color: $primary-color;
+  background-color: $secondary-color;
+}

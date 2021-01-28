@@ -1,36 +1,38 @@
 import React from 'react';
+import { Dropdown, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { DropdownMenu } from '../components';
+import { searchCategories } from '../utils';
 
 function Search(props)
 {
     return (
-        <form onSubmit={ props.onSubmit }>
+        <Form onSubmit={ props.onSubmit }>
 
             <h3 className="text-center mb-3">Search books</h3>
 
-            <div className="input-group input-group-lg">
+            <InputGroup size="lg">
 
-                <input type="text" className="form-control" placeholder="Search" onChange={ props.onInputChange } />
+                <FormControl type="text" placeholder="Search" value={ props.searchPhrase } onChange={ props.onSearchInputChange } />
 
-                <div className="input-group-append">
+                <InputGroup.Append>
 
-                    <div className="dropdown">
+                    <Dropdown>
 
-                        <button className="btn btn-block dropdown-toggle rounded-0 h-100 caret-off" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span className="d-none d-md-inline">Search by</span> <span className="font-weight-bold">{ props.searchByLabel }</span>
-                        </button>
+                        <Dropdown.Toggle variant="" block className="rounded-0 h-100 caret-off">
+                            <span className="d-none d-md-inline">Search by</span> <span className="font-weight-bold">{ props.searchCategory }</span>
+                        </Dropdown.Toggle>
 
-                        <DropdownMenu isRight={ true } onDropdownMenuItemClick={ props.onSearchByDropdownMenuItemClick } items={ ['title', 'author'] } />
+                        <DropdownMenu isRight={ true } onDropdownMenuItemClick={ props.onSearchCategoryDropdownMenuItemClick } items={ searchCategories } />
 
-                    </div>
+                    </Dropdown>
 
-                    <span className="input-group-text"><i className="fas fa-search fa-flip-horizontal"></i></span>
+                    <InputGroup.Text><i className="fas fa-search fa-flip-horizontal"></i></InputGroup.Text>
 
-                </div>
+                </InputGroup.Append>
 
-            </div>
+            </InputGroup>
 
-        </form>
+        </Form>
     );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Dropdown } from 'react-bootstrap';
 import { isValid } from '../utils';
+import '../styles/DropdownMenu.scss';
 
 function DropdownMenu(props)
 {
@@ -12,14 +13,14 @@ function DropdownMenu(props)
 
         for (let i = 0; i < itemArray.length; ++i)
         {
-            items.push(<Link key={ 'dropdownMenuItem' + i } className="dropdown-item" to="#" onClick={ props.onDropdownMenuItemClick }>{ itemArray[i] }</Link>);
+            items.push(<Dropdown.Item key={ 'dropdownMenuItem' + i } to="#" onClick={ props.onDropdownMenuItemClick }>{ itemArray[i] }</Dropdown.Item>);
         }
     }
 
     return (
-        <div className={ "dropdown-menu " + (props.isRight ? "dropdown-menu-right text-right" : "dropdown-menu-left text-left") }>
+        <Dropdown.Menu align={ props.isRight ? 'right' : 'left' } className={ props.isRight ? 'text-right' : 'text-left' }>
             { items }
-        </div>
+        </Dropdown.Menu>
     );
 }
 

@@ -1,12 +1,5 @@
 @import '../styles/Variables.scss';
 
-header
-{
-    background-color: $primary-color;
-    color: $tertiary-color;
-    box-shadow: 0rem 0.25rem 2rem 0.25rem $primary-color;
-}
-
 .welcome-text
 {
     font-weight: bold;
@@ -14,8 +7,7 @@ header
 
 .fab
 {
-    margin-left: 0.125rem;
-    margin-right: 0.125rem;
+    margin: 0 $xxx-small-size 0 $xxx-small-size;
 }
 
 .fa-facebook
@@ -68,101 +60,9 @@ header
     color: #7289da;
 }
 
-.logotype
+header
 {
-    display: flex;
-    text-decoration: none;
+    background-color: $primary-color;
     color: $tertiary-color;
-    font-size: 0;
-
-    h1
-    {
-        font-size: $x-large-size;
-        margin: 0;
-        
-        &::first-letter
-        {
-            color: $secondary-color;
-            font-size: $xxx-large-size;
-        }
-    }
-
-    &:hover
-    {
-        color: $tertiary-color;
-        text-decoration: none;
-    }
-}
-
-.nav-button
-{
-    display: inline-block;
-    color: $tertiary-color;
-    font-family: $primary-font-family;
-    font-size: calc(#{$small-size} * 1.25);
-
-    @media screen and (min-width: $screen-lg-min-width)
-    {
-        display: none;
-    }
-}
-
-.nav-list
-{
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-end;
-    align-items: flex-end;
-    list-style: none;
-    margin: 0 0 0 auto;
-    padding: 0;
-
-    li
-    {
-        display: block;
-        position: relative;
-
-        a
-        {
-            display: inline-block;
-            position: relative;
-            text-decoration: none;
-            color: $tertiary-color;
-            font-family: $primary-font-family;
-            font-size: calc(#{$small-size} * 1.25);
-            padding: calc(#{$small-size} * 1.375);
-        }
-
-        &::after
-        {
-            display: block;
-            position: absolute;
-            background: $tertiary-color none repeat scroll 0 0;
-            border-radius: 0.075rem;
-            height: 0.25rem;
-            left: 50%;
-            bottom: 0;
-            width: 0;
-            transition: width $short-duration ease-in-out, left $short-duration ease-in-out;
-            content: '';
-        }
-
-        &:hover:after:not(.current)
-        {
-            @extend li.current::after;
-        }
-
-        &.current::after
-        {
-            width: 100%;
-            left: 0;
-        }
-    }
-
-    @media screen and (min-width: $screen-lg-min-width)
-    {
-        flex-direction: row;
-        justify-items: center;
-        align-items: center;
-    }
+    box-shadow: 0 $xx-small-size $large-size $xx-small-size $primary-color;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { isValid } from '../utils';
+import '../styles/NavList.scss';
 
 function NavList(props)
 {

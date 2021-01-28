@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dropdown } from 'react-bootstrap';
 import { DropdownMenu, Pagination } from '../components';
 import { pagination } from '../utils';
 
@@ -10,15 +11,15 @@ function BookListPagination(props)
             <Pagination numberOfPaginationItems={ props.numberOfPaginationItems } currentPaginationItem={ props.currentPage }
                 onPaginationItemClick={ props.onPageNumberPaginationItemClick } />
 
-            <div className="dropdown d-inline-block mx-auto mr-md-0">
+            <Dropdown className="d-inline-block mx-auto mr-md-0">
 
-                <button className="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <Dropdown.Toggle variant="">
                     <span>Show</span> <span className="font-weight-bold">{ props.pageSize }</span> <span>books on page</span>
-                </button>
+                </Dropdown.Toggle>
 
                 <DropdownMenu isRight={ true } onDropdownMenuItemClick={ props.onPageSizeDropdownMenuItemClick } items={ pagination.pageSizes } />
 
-            </div>
+            </Dropdown>
 
         </div>
     );

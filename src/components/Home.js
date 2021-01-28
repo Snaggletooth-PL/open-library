@@ -9,7 +9,7 @@ function Home(props)
             <PageHeader iconClassName="fas fa-home" headerName="Home" />
 
             <div className="m-4">
-                <SearchContainer onSubmit={ props.onSearchSubmit } />
+                <SearchContainer setSearching={ props.setSearching } setErrorMessage={ props.setErrorMessage } />
             </div>
 
             { props.bookList }

@@ -1,0 +1,61 @@
+@import '../styles/Variables.scss';
+
+.nav-list
+{
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    align-items: flex-end;
+    list-style: none;
+    margin: 0 0 0 auto;
+    padding: 0;
+
+    li
+    {
+        display: block;
+        position: relative;
+
+        a
+        {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            color: $tertiary-color;
+            font-family: $primary-font-family;
+            font-size: calc(#{$small-size} * 1.25);
+            padding: calc(#{$small-size} * 1.375);
+        }
+
+        &::after
+        {
+            display: block;
+            position: absolute;
+            background: $tertiary-color none repeat scroll 0 0;
+            border-radius: calc(#{$xxx-small-size} * 0.6);
+            height: $xx-small-size;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            transition: width $short-duration ease-in-out, left $short-duration ease-in-out;
+            content: '';
+        }
+
+        &:hover:after:not(.current)
+        {
+            @extend li.current::after;
+        }
+
+        &.current::after
+        {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+    @media screen and (min-width: $screen-lg-min-width)
+    {
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+    }
+}

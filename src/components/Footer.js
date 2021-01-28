@@ -1,15 +1,16 @@
 import React from 'react';
+import { Container, Col, Row } from 'react-bootstrap';
 import '../styles/Footer.scss';
 
 function Footer()
 {
     return (
         <footer>
-            <div className="container">
+            <Container>
 
-                <div className="row p-3">
+                <Row className="p-3">
 
-                    <div className="col-12 col-md-4">
+                    <Col xs={ 12 } md={ 4 }>
 
                         <h5 className="font-weight-bold">OpenLibrary</h5>
 
@@ -18,61 +19,61 @@ function Footer()
                             Pellentesque luctus cursus volutpat. Morbi finibus lacus eros, eu gravida metus iaculis ac.
                         </p>
 
-                    </div>
+                    </Col>
 
-                    <div className="col-12 col-md-4">
+                    <Col xs={ 12 } md={ 4 }>
 
                         <h5 className="font-weight-bold">Subjects</h5>
 
-                    </div>
+                    </Col>
 
-                    <div className="col-12 col-md-4">
+                    <Col xs={ 12 } md={ 4 }>
 
                         <h5 className="font-weight-bold">Contact details</h5>
 
-                        <div className="row">
+                        <Row>
 
-                            <div className="col-3">
+                            <Col xs={ 3 }>
                                 <p className="font-weight-bold">Address:</p>
-                            </div>
+                            </Col>
 
-                            <div className="col-9">
+                            <Col xs={ 9 }>
                                 <p>69 Abbey Rd, London, United Kingdom</p>
-                            </div>
+                            </Col>
 
-                        </div>
+                        </Row>
 
-                        <div className="row">
+                        <Row>
 
-                            <div className="col-3">
+                            <Col xs={ 3 }>
                                 <p className="font-weight-bold">Phone:</p>
-                            </div>
+                            </Col>
 
-                            <div className="col-9">
+                            <Col xs={ 9 }>
                                 <p>+44 1632 960948</p>
-                            </div>
+                            </Col>
 
-                        </div>
+                        </Row>
 
-                        <div className="row">
+                        <Row>
 
-                            <div className="col-3">
+                            <Col xs={ 3 }>
                                 <p className="font-weight-bold">E-mail:</p>
-                            </div>
+                            </Col>
 
-                            <div className="col-9">
+                            <Col xs={ 9 }>
                                 <p>openlibrary@ol.com</p>
-                            </div>
+                            </Col>
 
-                        </div>
+                        </Row>
 
-                    </div>
+                    </Col>
 
-                </div>
+                </Row>
 
                 <p className="copyright-text">Copyright &copy; 2020 Konrad Rembowski</p>
 
-            </div>
+            </Container>
         </footer>
     );
 }

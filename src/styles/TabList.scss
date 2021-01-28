@@ -1,0 +1,25 @@
+@import '../styles/Variables.scss';
+
+nav.nav.nav-tabs
+{
+    border-color: $secondary-color;
+
+    a.nav-item.nav-link
+    {
+        color: $secondary-color;
+        background-color: transparent;
+        border-color: $secondary-color;
+        border-bottom: 0;
+
+        &.active
+        {
+            color: $primary-color;
+            font-weight: bold;
+        }
+
+        &:not(.active)
+        {
+            border: 0;
+        }
+    }
+}

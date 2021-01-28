@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Pagination as BootstrapPagination } from 'react-bootstrap';
 import { pagination } from '../utils';
 import '../styles/Pagination.scss'
 
@@ -12,23 +12,22 @@ function Pagination(props)
         let paginationItem = i + 1;
 
         paginationItems.push(
-            <li key={ 'paginationItem' + i } className={ `page-item ${ (paginationItem === props.currentPaginationItem) ? 'active' : '' }` }>
-                <Link className="page-link" to="#" onClick={ props.onPaginationItemClick }>{ paginationItem }</Link>
-            </li>
+            <BootstrapPagination.Item key={ 'paginationItem' + i } className={ (paginationItem === props.currentPaginationItem) ? 'active' : '' } href="#"
+                onClick={ props.onPaginationItemClick }>
+                { paginationItem }
+            </BootstrapPagination.Item>
         );
     }
 
     return (
         <nav className="align-self-center align-middle mx-auto mx-md-0 mb-3 mb-md-0 mr-md-3">
-            <ul className="pagination pagination-sm m-0">
-                <li className={ `page-item ${ (props.currentPaginationItem <= pagination.firstPage) ? 'disabled' : '' }` }>
-                    <Link key='paginationItemPrev' className="page-link" to="#" onClick={ props.onPaginationItemClick }>{ pagination.previousPage }</Link>
-                </li>
+            <BootstrapPagination size="sm" className="m-0">
+                <BootstrapPagination.Item key='paginationItemPrev' className={ (props.currentPaginationItem <= pagination.firstPage) ? 'disabled' : '' } href="#"
+                    onClick={ props.onPaginationItemClick }>{ pagination.previousPage }</BootstrapPagination.Item>
                 { paginationItems }
-                <li className={ `page-item ${ (props.currentPaginationItem >= paginationItems.length) ? 'disabled' : '' }` }>
-                    <Link key='paginationItemNext' className="page-link" to="#" onClick={ props.onPaginationItemClick }>{ pagination.nextPage }</Link>
-                </li>
-            </ul>
+                <BootstrapPagination.Item key='paginationItemNext' className={ (props.currentPaginationItem >= paginationItems.length) ? 'disabled' : '' } href="#"
+                    onClick={ props.onPaginationItemClick }>{ pagination.nextPage }</BootstrapPagination.Item>
+            </BootstrapPagination>
         </nav>
     );
 }

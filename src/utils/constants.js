@@ -3,11 +3,13 @@ import axios from 'axios';
 export const bookProperty =
 {
     key: 'key',
+    coverId: 'cover_i',
     title: 'title',
     author: 'author_name',
     year: 'first_publish_year',
     subjects: 'subject',
-    coverId: 'cover_i'
+    description: 'description',
+    links: 'links'
 };
 
 export const sortKey =
@@ -30,5 +32,7 @@ export const pagination =
     firstPage: 1,
     pageSizes: [10, 25, 50, 100]
 };
+
+export const searchCategories = ['title', 'author', 'publisher', 'subject'];
 
 export const olApi = axios.create({ baseURL: 'https://openlibrary.org/' });

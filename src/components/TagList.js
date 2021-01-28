@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Badge } from 'react-bootstrap';
 import { isValid } from '../utils';
+import '../styles/TagList.scss';
 
 function TagList(props)
 {
@@ -12,7 +14,7 @@ function TagList(props)
 
         for (let i = 0; i < tagArray.length; ++i)
         {
-            tags.push(<Link key={ 'tag' + i } className="text-reset text-decoration-none" to="#" onClick={ props.onTagClick }><span className="badge m-1">{ tagArray[i] }</span></Link>);
+            tags.push(<Link key={ 'tag' + i } to="#" onClick={ props.onTagClick }><Badge variant="" className="m-1">{ tagArray[i] }</Badge></Link>);
         }
     }
 

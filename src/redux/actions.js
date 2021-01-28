@@ -65,3 +65,15 @@ export const paginateBookListByCurrentPage = (currentPage) =>
     type: ActionTypes.PAGINATE_BOOK_LIST_BY_CURRENT_PAGE,
     currentPage
 });
+
+export const setBookSearchPhrase = (searchPhrase) =>
+({
+    type: ActionTypes.SET_BOOK_SEARCH_PHRASE,
+    searchPhrase
+});
+
+export const setBookSearchCategory = (searchCategory) =>
+({
+    type: ActionTypes.SET_BOOK_SEARCH_CATEGORY,
+    searchCategory
+});

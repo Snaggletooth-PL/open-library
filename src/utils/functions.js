@@ -16,4 +16,31 @@ export const isUnsignedNumber = (value) =>
 export const isBoolean = (value) =>
 {
     return typeof value === 'boolean';
-}
+};
+
+export const isString = (value) =>
+{
+    return typeof value === 'string' || value instanceof String;
+};
+
+export const isObject = (value) =>
+{
+    return typeof value === 'object' || value instanceof Object;
+};
+
+export const toProperCase = (value) =>
+{
+    if (isString(value))
+    {
+        let subStrings = value.split(' ');
+
+        for (let i = 0; i < subStrings.length; ++i)
+        {
+            subStrings[i] = subStrings[i].charAt(0).toUpperCase() + subStrings[i].slice(1).toLowerCase();
+        }
+
+        return subStrings.join(' ');
+    }
+
+    return undefined;
+};

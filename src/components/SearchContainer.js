@@ -1,31 +1,70 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList } from '../redux/actions';
 import { Search } from '../components';
+import { olApi, isValid } from '../utils';
 
 class SearchContainer extends React.Component
 {
-    state = { searchPhrase: '', searchBy: 'title', searchByLabel: 'title' };
-
-    onInputChange = (event) =>
+    onSearchInputChange = (event) =>
     {
-        this.setState({ searchPhrase: event.target.value });
+        this.props.setBookSearchPhrase(event.target.value)
     };
 
-    onSearchByDropdownMenuItemClick = (event) =>
+    onSearchCategoryDropdownMenuItemClick = (event) =>
     {
-        this.setState({ searchBy: event.target.textContent, searchByLabel: event.target.textContent });
+        this.props.setBookSearchCategory(event.target.textContent);
     };
 
     onSubmit = (event) =>
     {
         event.preventDefault();
-        this.props.onSubmit(this.state.searchPhrase, this.state.searchBy);
+
+        let isSearchPhraseValid = isValid(this.props.searchPhrase);
+        this.props.setSearching(isSearchPhraseValid);
+        this.props.setErrorMessage('');
+        this.props.clearBookList();
+
+        if (isSearchPhraseValid)
+        {
+            olApi.get(`search.json?${ this.props.searchCategory }=${ this.props.searchPhrase }`).then((response) =>
+            {
+                this.props.setSearching(false);
+
+                let list = response.data.docs;
+
+                if (list.length)
+                {
+                    this.props.fetchBookList(list);
+                }
+                else
+                {
+                    this.props.setErrorMessage('Nothing found...');
+                }
+            }).catch(() =>
+            {
+                this.props.setSearching(false);
+                this.props.setErrorMessage('Search failed!');
+            });
+        }
+        else
+        {
+            this.props.setErrorMessage(' ');
+        }
     };
 
     render()
     {
-        return <Search searchByLabel={ this.state.searchByLabel } onSubmit={ this.onSubmit } onInputChange={ this.onInputChange }
-            onSearchByDropdownMenuItemClick={ this.onSearchByDropdownMenuItemClick } />;
+        return <Search searchPhrase={ this.props.searchPhrase } searchCategory={ this.props.searchCategory } onSubmit={ this.onSubmit } onSearchInputChange={ this.onSearchInputChange }
+            onSearchCategoryDropdownMenuItemClick={ this.onSearchCategoryDropdownMenuItemClick } />;
     }
 }
 
-export default SearchContainer;
+const mapStateToProps = (state) =>
+{
+    return { searchPhrase: state.bookSearch.searchPhrase, searchCategory: state.bookSearch.searchCategory };
+};
+
+const mapDispatchToProps = { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

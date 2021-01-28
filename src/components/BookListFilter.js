@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, FormCheck, FormControl, InputGroup, Row } from 'react-bootstrap';
 import { TagList } from '../components';
 
 function BookListFilter(props)
@@ -6,90 +7,68 @@ function BookListFilter(props)
     return (
         <div className="mx-auto">
 
-            <div className="row mx-auto mb-3">
+            <Row className="mx-auto mb-3">
                 <h5 className="m-0">Filters</h5>
-            </div>
+            </Row>
 
-            <div className="row mx-auto mb-3">
-
-                <div className="form-check mx-1 m-lg-0">
-
-                    <input id="filterBookListByAuthorAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.onlyWithAuthorAvailable }
-                        onChange={ props.onOnlyWithAuthorAvailableCheckboxChange } />
-
-                    <label className="form-check-label" htmlFor="filterBookListByAuthorAvailabilityCheckbox">Show only books with known author</label>
-
-                </div>
-
-                <div className="form-check mx-1 m-lg-0">
-
-                    <input id="filterBookListByCoverAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.onlyWithCoverAvailable }
-                        onChange={ props.onlyWithCoverAvailableCheckboxChange } />
-
-                    <label className="form-check-label" htmlFor="filterBookListByCoverAvailabilityCheckbox">Show only books with cover</label>
-
-                </div>
-
-                <div className="form-check mx-1 m-lg-0">
-
-                    <input id="filterBookListByYearAvailabilityCheckbox" type="checkbox" className="form-check-input" checked={ props.onlyWithYearAvailable }
-                        onChange={ props.onlyWithYearAvailableCheckboxChange } />
-
-                    <label className="form-check-label" htmlFor="filterBookListByYearAvailabilityCheckbox">Show only books with known year</label>
-
-                </div>
-
-            </div>
+            <Row className="mx-auto mb-3">
+                <FormCheck type="checkbox" label="Show only books with known author" className="mx-1 m-lg-0" checked={ props.onlyWithAuthorAvailable }
+                    onChange={ props.onOnlyWithAuthorAvailableCheckboxChange } />
+                <FormCheck type="checkbox" label="Show only books with cover" className="mx-1 m-lg-0" checked={ props.onlyWithCoverAvailable }
+                    onChange={ props.onlyWithCoverAvailableCheckboxChange } />
+                <FormCheck type="checkbox" label="Show only books with known year" className="mx-1 m-lg-0" checked={ props.onlyWithYearAvailable }
+                    onChange={ props.onlyWithYearAvailableCheckboxChange } />
+            </Row>
 
             <div className="horizontal-divider"></div>
 
-            <div className="row mx-auto mb-3">
+            <Row className="mx-auto mb-3">
 
                 <label>Show only books with number of pages:</label>
 
-                <div className="input-group input-group-sm mx-auto mb-2">
+                <InputGroup size="sm" className="mx-auto mb-2">
 
-                    <div className="input-group-prepend">
-                        <span className="input-group-text">from</span>
-                    </div>
+                    <InputGroup.Prepend>
+                        <InputGroup.Text>from</InputGroup.Text>
+                    </InputGroup.Prepend>
 
-                    <input type="number" className="form-control" value={ props.minYear } onChange={ props.onMinYearInputChange } />
+                    <FormControl type="number" value={ props.minYear } onChange={ props.onMinYearInputChange } />
 
-                    <div className="input-group-prepend input-group-append">
-                        <span className="input-group-text">to</span>
-                    </div>
+                    <InputGroup.Append>
+                        <InputGroup.Text>to</InputGroup.Text>
+                    </InputGroup.Append>
 
-                    <input type="number" className="form-control" value={ props.maxYear } onChange={ props.onMaxYearInputChange } />
+                    <FormControl type="number" value={ props.maxYear } onChange={ props.onMaxYearInputChange } />
 
-                </div>
+                </InputGroup>
 
-                <button type="button" className="btn btn-sm btn-block" onClick={ props.onYearRangeResetButtonClick }>Reset</button>
+                <Button type="button" variant="" size="sm" block onClick={ props.onYearRangeResetButtonClick }>Reset</Button>
 
-            </div>
+            </Row>
 
             <div className="horizontal-divider"></div>
 
-            <div className="row mx-auto mb-3">
+            <Row className="mx-auto mb-3">
 
                 <label>Show only books with subjects:</label>
 
-                <div className="input-group input-group-sm mb-1">
+                <InputGroup size="sm" className="mb-1">
 
-                    <input type="text" className="form-control" onKeyUp={ props.onSubjectsInputKeyUp } />
+                    <FormControl type="text" onKeyUp={ props.onSubjectsInputKeyUp } />
 
-                    <div className="input-group-append">
-                        <span className="input-group-text"><i className="fas fa-hashtag"></i></span>
-                    </div>
+                    <InputGroup.Append>
+                        <InputGroup.Text><i className="fas fa-hashtag"></i></InputGroup.Text>
+                    </InputGroup.Append>
 
-                </div>
+                </InputGroup>
 
                 { (props.subjects.length) ? <small className="mx-auto">Click on tag to remove</small> : null }
 
                 <TagList tags={ props.subjects } onTagClick={ props.onSubjectTagClick } />
 
-                { (props.subjects.length) ? <button type="button" className="btn btn-sm btn-block" onClick={ props.onSubjectsClearButtonClick }>Clear</button> : null }
+                { (props.subjects.length) ? <Button type="button" variant="" size="sm" block onClick={ props.onSubjectsClearButtonClick }>Clear</Button> : null }
 
-            </div>
+            </Row>
 
         </div>
     );

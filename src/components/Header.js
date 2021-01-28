@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 import { Nav } from '../components';
 import '../styles/Header.scss';
 
@@ -7,7 +8,7 @@ function Header()
 {
     return (
         <header>
-            <div className="container">
+            <Container>
 
                 <div className="d-flex flex-column flex-sm-row justify-content-between mx-auto">
 
@@ -34,7 +35,7 @@ function Header()
 
                 <Nav />
 
-            </div>
+            </Container>
         </header>
     );
 }

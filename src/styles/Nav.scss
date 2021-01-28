@@ -1,0 +1,42 @@
+@import '../styles/Variables.scss';
+
+#navbar-toggle
+{
+    display: inline-block;
+    color: $tertiary-color;
+    background-color: transparent;
+    font-family: $primary-font-family;
+    font-size: $medium-size;
+    border: 0;
+
+    @media screen and (min-width: $screen-lg-min-width)
+    {
+        display: none;
+    }
+}
+
+.logotype
+{
+    display: flex;
+    text-decoration: none;
+    color: $tertiary-color;
+    font-size: 0;
+
+    h1
+    {
+        font-size: $x-large-size;
+        margin: 0;
+        
+        &::first-letter
+        {
+            color: $secondary-color;
+            font-size: $xxx-large-size;
+        }
+    }
+
+    &:hover
+    {
+        color: $tertiary-color;
+        text-decoration: none;
+    }
+}
