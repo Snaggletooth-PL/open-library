@@ -12,6 +12,7 @@ export { default as BookListPaginationContainer } from './BookListPaginationCont
 export { default as BookListSort } from './BookListSort';
 export { default as BookListSortContainer } from './BookListSortContainer';
 export { default as Contact } from './Contact';
+export { default as ContactContainer } from './ContactContainer';
 export { default as DropdownMenu } from './DropdownMenu';
 export { default as ErrorMessage } from './ErrorMessage';
 export { default as Footer } from './Footer';

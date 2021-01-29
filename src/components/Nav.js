@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
 import { NavList } from '../components';
 import '../styles/Nav.scss';
 

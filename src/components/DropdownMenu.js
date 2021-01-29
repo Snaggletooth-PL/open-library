@@ -9,11 +9,11 @@ function DropdownMenu(props)
 
     if (isValid(props.items))
     {
-        let itemArray = Array.from(props.items);
+        let _items = Array.isArray(props.items) ? props.items : [];
 
-        for (let i = 0; i < itemArray.length; ++i)
+        for (let i = 0; i < _items.length; ++i)
         {
-            items.push(<Dropdown.Item key={ 'dropdownMenuItem' + i } to="#" onClick={ props.onDropdownMenuItemClick }>{ itemArray[i] }</Dropdown.Item>);
+            items.push(<Dropdown.Item key={ 'dropdownMenuItem' + i } to="#" onClick={ props.onDropdownMenuItemClick }>{ _items[i] }</Dropdown.Item>);
         }
     }
 

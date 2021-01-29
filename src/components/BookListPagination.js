@@ -8,8 +8,7 @@ function BookListPagination(props)
     return (
         <div className="d-flex flex-column flex-md-row justify-content-between">
 
-            <Pagination numberOfPaginationItems={ props.numberOfPaginationItems } currentPaginationItem={ props.currentPage }
-                onPaginationItemClick={ props.onPageNumberPaginationItemClick } />
+            <Pagination numberOfPaginationItems={ props.numberOfPaginationItems } currentPaginationItem={ props.currentPage } onPaginationItemClick={ props.onPageNumberPaginationItemClick } />
 
             <Dropdown className="d-inline-block mx-auto mr-md-0">
 

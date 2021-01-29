@@ -9,11 +9,11 @@ function NavList(props)
 
     if (isValid(props.pages))
     {
-        let pageMap = new Map(props.pages);
+        let _pages = new Map(props.pages);
 
-        for (let [pageKey, pageValue] of pageMap)
+        for (let [pageUrl, pageName] of _pages)
         {
-            pages.push(<li key={ 'navItem(' + pageKey + ')' } className={ (pageKey === props.currentPage) ? 'current' : '' }><Link to={ pageKey }>{ pageValue }</Link></li>);
+            pages.push(<li key={ 'navItem(' + pageUrl + ')' } className={ (pageUrl === props.currentPage) ? 'current' : '' }><Link to={ pageUrl }>{ pageName }</Link></li>);
         }
     }
 

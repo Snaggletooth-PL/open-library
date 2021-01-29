@@ -22,7 +22,7 @@ div.input-group
   }
 }
 
-input.form-control
+input.form-control, textarea.form-control
 {
   background-color: lighten($secondary-color, 15%);
   border-color: darken($secondary-color, 5%);
@@ -84,9 +84,14 @@ h1, h2, h3, h4, h5, h6
   font-family: $primary-font-family;
 }
 
-p, input, label, span, small, a
+p, a, input, textarea, label, span, small
 {
   font-family: $secondary-font-family;
+}
+
+p
+{
+  white-space: pre-wrap;
 }
 
 a, a:hover
@@ -105,4 +110,10 @@ input[type="number"]
 {
   -moz-appearance: textfield;
   margin: 0;
+}
+
+::selection
+{
+  color: $tertiary-color;
+  background-color: $secondary-color;
 }

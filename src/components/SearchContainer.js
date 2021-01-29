@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList } from '../redux/actions';
+import { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList, paginateBookListByCurrentPage } from '../redux/actions';
 import { Search } from '../components';
-import { olApi, isValid } from '../utils';
+import { olApi, isValid, pagination } from '../utils';
 
 class SearchContainer extends React.Component
 {
@@ -24,13 +24,13 @@ class SearchContainer extends React.Component
         this.props.setSearching(isSearchPhraseValid);
         this.props.setErrorMessage('');
         this.props.clearBookList();
+        this.props.paginateBookListByCurrentPage(pagination.firstPage);
 
         if (isSearchPhraseValid)
         {
             olApi.get(`search.json?${ this.props.searchCategory }=${ this.props.searchPhrase }`).then((response) =>
             {
                 this.props.setSearching(false);
-
                 let list = response.data.docs;
 
                 if (list.length)
@@ -65,6 +65,6 @@ const mapStateToProps = (state) =>
     return { searchPhrase: state.bookSearch.searchPhrase, searchCategory: state.bookSearch.searchCategory };
 };
 
-const mapDispatchToProps = { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList };
+const mapDispatchToProps = { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList, paginateBookListByCurrentPage };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

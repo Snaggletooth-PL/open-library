@@ -9,7 +9,15 @@ export const bookProperty =
     year: 'first_publish_year',
     subjects: 'subject',
     description: 'description',
+    publishers: 'publisher',
     links: 'links'
+};
+
+export const coverSize =
+{
+    small: 'S',
+    medium: 'M',
+    large: 'L'
 };
 
 export const sortKey =

@@ -9,11 +9,11 @@ function TabList(props)
 
     if (isValid(props.tabs))
     {
-        let tabMap = new Map(props.tabs);
+        let _tabs = new Map(props.tabs);
 
-        for (let [tabKey, tabValue] of tabMap)
+        for (let [tabName, tabContent] of _tabs)
         {
-            tabs.push(<Tab key={ 'tab' + tabKey } eventKey={ tabKey } title={ toProperCase(tabKey) }><Row className="px-4 py-2">{ tabValue }</Row></Tab>);
+            tabs.push(<Tab key={ 'tab' + tabName } eventKey={ tabName } title={ toProperCase(tabName) }><Row className="px-4 py-2">{ tabContent }</Row></Tab>);
         }
     }
 

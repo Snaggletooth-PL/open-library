@@ -1,5 +1,6 @@
 import React from 'react';
 import { Loader } from '../../components';
+import { isBoolean } from '../../utils';
 
 const withLoading = (Component) =>
 {
@@ -9,7 +10,7 @@ const withLoading = (Component) =>
         {
             const { isLoading, ...restProps } = this.props;
 
-            if (isLoading)
+            if (isBoolean(isLoading) && isLoading)
             {
                 return <Loader />;
             }

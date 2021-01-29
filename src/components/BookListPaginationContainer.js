@@ -32,10 +32,8 @@ class BookListPaginationContainer extends React.Component
     render()
     {
         return <BookListPagination numberOfPaginationItems={ Math.ceil(this.props.currentNumberOfBooks / this.props.bookListPagination.pageSize) }
-            pageSize={ this.props.bookListPagination.pageSize }
-            onPageSizeDropdownMenuItemClick={ this.onPageSizeDropdownMenuItemClick }
-            currentPage={ this.props.bookListPagination.currentPage }
-            onPageNumberPaginationItemClick={ this.onPageNumberPaginationItemClick } />
+            pageSize={ this.props.bookListPagination.pageSize } onPageSizeDropdownMenuItemClick={ this.onPageSizeDropdownMenuItemClick }
+            currentPage={ this.props.bookListPagination.currentPage } onPageNumberPaginationItemClick={ this.onPageNumberPaginationItemClick } />;
     }
 }
 

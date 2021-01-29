@@ -17,10 +17,7 @@ class BookListSortContainer extends React.Component
 
     render()
     {
-        return <BookListSort sortKey={ this.props.bookListSort.sortKey }
-            onSortKeyDropdownMenuItemClick={ this.onSortKeyDropdownMenuItemClick }
-            sortOrder={ this.props.bookListSort.sortOrder }
-            onSortOrderLinkClick={ this.onSortOrderLinkClick } />
+        return <BookListSort sortKey={ this.props.bookListSort.sortKey } onSortKeyDropdownMenuItemClick={ this.onSortKeyDropdownMenuItemClick } sortOrder={ this.props.bookListSort.sortOrder } onSortOrderLinkClick={ this.onSortOrderLinkClick } />;
     }
 }
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Pagination as BootstrapPagination } from 'react-bootstrap';
-import { pagination } from '../utils';
+import { isNumber, pagination } from '../utils';
 import '../styles/Pagination.scss'
 
 function Pagination(props)
 {
     let paginationItems = [];
+    let numberOfPaginationItems = isNumber(props.numberOfPaginationItems) ? props.numberOfPaginationItems : 0;
 
-    for (let i = 0; i < props.numberOfPaginationItems; ++i)
+    for (let i = 0; i < numberOfPaginationItems; ++i)
     {
         let paginationItem = i + 1;
 

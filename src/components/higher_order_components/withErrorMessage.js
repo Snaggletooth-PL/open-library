@@ -1,5 +1,6 @@
 import React from 'react';
 import { ErrorMessage } from '../../components';
+import { isString } from '../../utils';
 
 const withErrorMessage = (Component) =>
 {
@@ -9,9 +10,9 @@ const withErrorMessage = (Component) =>
         {
             const { errorMessage, ...restProps } = this.props;
 
-            if (errorMessage)
+            if (isString(errorMessage) && errorMessage.length)
             {
-                return <ErrorMessage message={ errorMessage } />;
+                return <ErrorMessage errorMessage={ errorMessage } />;
             }
 
             return <Component { ...restProps } />;

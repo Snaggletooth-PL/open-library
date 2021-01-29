@@ -10,11 +10,11 @@ function TagList(props)
 
     if (isValid(props.tags))
     {
-        let tagArray = Array.from(props.tags);
+        let _tags = Array.isArray(props.tags) ? props.tags : [];
 
-        for (let i = 0; i < tagArray.length; ++i)
+        for (let i = 0; i < _tags.length; ++i)
         {
-            tags.push(<Link key={ 'tag' + i } to="#" onClick={ props.onTagClick }><Badge variant="" className="m-1">{ tagArray[i] }</Badge></Link>);
+            tags.push(<Link key={ 'tag' + i } to="#" onClick={ props.onTagClick }><Badge variant="" className="m-1">{ _tags[i] }</Badge></Link>);
         }
     }
 

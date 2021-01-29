@@ -2,19 +2,21 @@ import { bookProperty, isValid, sortKey, sortOrder } from '../../utils';
 
 export const getSortedBookList = (bookList, bookListSort) =>
 {
+    let books = Array.isArray(bookList) ? bookList : [];
+
     switch (bookListSort.sortKey)
     {
         case sortKey.title:
-            return bookList.sort(sort(bookProperty.title, bookListSort.sortOrder));
+            return books.sort(sort(bookProperty.title, bookListSort.sortOrder));
 
         case sortKey.author:
-            return bookList.sort(sort(bookProperty.author, bookListSort.sortOrder));
+            return books.sort(sort(bookProperty.author, bookListSort.sortOrder));
 
         case sortKey.year:
-            return bookList.sort(sort(bookProperty.year, bookListSort.sortOrder));
+            return books.sort(sort(bookProperty.year, bookListSort.sortOrder));
 
         default:
-            return bookList;
+            return books;
     }
 };
 

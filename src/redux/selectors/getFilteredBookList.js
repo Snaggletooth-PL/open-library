@@ -13,9 +13,10 @@ export const getFilteredBookList = (bookList, bookListFilter) =>
 
 function filterBookListByAuthorAvailability(bookList, onlyWithAuthorAvailable)
 {
+    let books = Array.isArray(bookList) ? bookList : [];
     let onlyWithPropertyAvailable = isBoolean(onlyWithAuthorAvailable) ? onlyWithAuthorAvailable : false;
 
-    return bookList.filter(book =>
+    return books.filter(book =>
     {
         if (!onlyWithPropertyAvailable)
         {
@@ -28,9 +29,10 @@ function filterBookListByAuthorAvailability(bookList, onlyWithAuthorAvailable)
 
 function filterBookListByCoverAvailability(bookList, onlyWithCoverAvailable)
 {
+    let books = Array.isArray(bookList) ? bookList : [];
     let onlyWithPropertyAvailable = isBoolean(onlyWithCoverAvailable) ? onlyWithCoverAvailable : false;
 
-    return bookList.filter(book =>
+    return books.filter(book =>
     {
         if (!onlyWithPropertyAvailable)
         {
@@ -43,9 +45,10 @@ function filterBookListByCoverAvailability(bookList, onlyWithCoverAvailable)
 
 function filterBookListByYearAvailability(bookList, onlyWithYearAvailable)
 {
+    let books = Array.isArray(bookList) ? bookList : [];
     let onlyWithPropertyAvailable = isBoolean(onlyWithYearAvailable) ? onlyWithYearAvailable : false;
 
-    return bookList.filter(book =>
+    return books.filter(book =>
     {
         if (!onlyWithPropertyAvailable)
         {
@@ -58,11 +61,12 @@ function filterBookListByYearAvailability(bookList, onlyWithYearAvailable)
 
 function filterBookListByYearRange(bookList, minYear, maxYear)
 {
+    let books = Array.isArray(bookList) ? bookList : [];
     let isMinYearUnsignedNumber = isUnsignedNumber(minYear), isMaxYearUnsignedNumber = isUnsignedNumber(maxYear);
     let min = isMinYearUnsignedNumber ? minYear : 0;
     let max = isMaxYearUnsignedNumber ? maxYear : Number.MAX_VALUE;
 
-    return bookList.filter(book =>
+    return books.filter(book =>
     {
         if (isUnsignedNumber(book[bookProperty.year]))
         {
@@ -77,17 +81,18 @@ function filterBookListByYearRange(bookList, minYear, maxYear)
 
 function filterBookListBySubjects(bookList, subjects)
 {
-    let subjectArray = Array.from(subjects);
+    let books = Array.isArray(bookList) ? bookList : [];
+    let _subjects = Array.isArray(subjects) ? subjects : [];
 
-    return bookList.filter(book =>
+    return books.filter(book =>
     {
         let bookSubjects = book[bookProperty.subjects];
 
-        if (!isValid(bookSubjects) && subjectArray.length)
+        if (!isValid(bookSubjects) && _subjects.length)
         {
             return false;
         }
 
-        return subjectArray.every(subject => bookSubjects.includes(subject));
+        return _subjects.every(subject => bookSubjects.includes(subject));
     });
 }

@@ -9,7 +9,7 @@ function BookListSort(props)
     return (
         <div className="mx-auto mx-md-0 mb-3 mb-lg-0">
 
-            <Dropdown className="dropdown d-inline-block mr-2">
+            <Dropdown className="d-inline-block mr-2">
 
                 <Dropdown.Toggle variant="">
                     <span>Sort by</span> <span className="font-weight-bold">{ props.sortKey }</span>

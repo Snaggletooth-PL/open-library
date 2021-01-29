@@ -57,6 +57,7 @@ class BookListFilterContainer extends React.Component
         if (event.keyCode === 13 && isValid(value))
         {
             event.preventDefault();
+
             this.props.filterBookListBySubjects(Array.from(new Set(this.props.bookListFilter.subjects).add(value)));
             this.props.paginateBookListByCurrentPage(pagination.firstPage);
             event.currentTarget.value = '';
@@ -79,21 +80,10 @@ class BookListFilterContainer extends React.Component
 
     render()
     {
-        return <BookListFilter onlyWithAuthorAvailable={ this.props.bookListFilter.onlyWithAuthorAvailable }
-            onlyWithCoverAvailable={ this.props.bookListFilter.onlyWithCoverAvailable }
-            onlyWithYearAvailable={ this.props.bookListFilter.onlyWithYearAvailable }
-            onOnlyWithAuthorAvailableCheckboxChange={ this.onOnlyWithAuthorAvailableCheckboxChange }
-            onlyWithCoverAvailableCheckboxChange={ this.onlyWithCoverAvailableCheckboxChange }
-            onlyWithYearAvailableCheckboxChange={ this.onlyWithYearAvailableCheckboxChange }
-            minYear={ this.props.bookListFilter.minYear }
-            maxYear={ this.props.bookListFilter.maxYear }
-            onMinYearInputChange={ this.onMinYearInputChange }
-            onMaxYearInputChange={ this.onMaxYearInputChange }
-            onYearRangeResetButtonClick={ this.onYearRangeResetButtonClick }
-            subjects={ this.props.bookListFilter.subjects }
-            onSubjectsInputKeyUp={ this.onSubjectsInputKeyUp }
-            onSubjectTagClick={ this.onSubjectTagClick }
-            onSubjectsClearButtonClick={ this.onSubjectsClearButtonClick } />;
+        return <BookListFilter onlyWithAuthorAvailable={ this.props.bookListFilter.onlyWithAuthorAvailable } onlyWithCoverAvailable={ this.props.bookListFilter.onlyWithCoverAvailable } onlyWithYearAvailable={ this.props.bookListFilter.onlyWithYearAvailable } onOnlyWithAuthorAvailableCheckboxChange={ this.onOnlyWithAuthorAvailableCheckboxChange } onlyWithCoverAvailableCheckboxChange={ this.onlyWithCoverAvailableCheckboxChange } onlyWithYearAvailableCheckboxChange={ this.onlyWithYearAvailableCheckboxChange }
+            minYear={ this.props.bookListFilter.minYear } maxYear={ this.props.bookListFilter.maxYear } onMinYearInputChange={ this.onMinYearInputChange }
+            onMaxYearInputChange={ this.onMaxYearInputChange } onYearRangeResetButtonClick={ this.onYearRangeResetButtonClick } subjects={ this.props.bookListFilter.subjects }
+            onSubjectsInputKeyUp={ this.onSubjectsInputKeyUp } onSubjectTagClick={ this.onSubjectTagClick } onSubjectsClearButtonClick={ this.onSubjectsClearButtonClick } />;
     }
 }
 

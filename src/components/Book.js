@@ -1,26 +1,27 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { bookProperty, isValid, isUnsignedNumber } from '../utils';
+import { Card, Col } from 'react-bootstrap';
+import { bookProperty, coverSize, isValid, isUnsignedNumber, getCoverUrl } from '../utils';
 import '../styles/Book.scss';
 
 function Book(props)
 {
-    let cover = props.book[bookProperty.coverId];
+    let coverId = props.book[bookProperty.coverId];
     let title = props.book[bookProperty.title];
     let author = props.book[bookProperty.author];
     let year = props.book[bookProperty.year];
     let locationState = {};
-    locationState[bookProperty.coverId] = cover;
+    locationState[bookProperty.coverId] = coverId;
     locationState[bookProperty.author] = author;
     locationState[bookProperty.year] = year;
+    locationState[bookProperty.publishers] = props.book[bookProperty.publishers];
 
     return (
         <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } className="book mb-4">
             <Link to={ { pathname: `/book${ props.book[bookProperty.key] }`, state: locationState } }>
                 <Card>
 
-                    <Card.Img src={ isUnsignedNumber(cover) ? 'https://covers.openlibrary.org/b/id/' + cover + '-M.jpg' : window.location.origin + '/open-library/images/default_cover.png' } variant="top" className="img-responsive" alt="Book cover" />
+                    <Card.Img src={ getCoverUrl(coverId, coverSize.medium) } variant="top" className="img-responsive" alt="Book cover" />
 
                     <Card.Body className="text-center p-2">
 

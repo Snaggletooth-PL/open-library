@@ -15,7 +15,7 @@ export const isUnsignedNumber = (value) =>
 
 export const isBoolean = (value) =>
 {
-    return typeof value === 'boolean';
+    return typeof value === 'boolean' || value instanceof Boolean;
 };
 
 export const isString = (value) =>
@@ -43,4 +43,16 @@ export const toProperCase = (value) =>
     }
 
     return undefined;
+};
+
+export const getCoverUrl = (coverId, coverSize) =>
+{
+    if (isUnsignedNumber(coverId))
+    {
+        return 'https://covers.openlibrary.org/b/id/' + coverId + '-' + coverSize + '.jpg';
+    }
+    else
+    {
+        return window.location.origin + '/open-library/images/default_cover.png';
+    }
 };

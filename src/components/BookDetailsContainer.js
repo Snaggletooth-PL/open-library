@@ -1,7 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { BookDetails } from '../components';
+import { withRedirect } from '../components/higher_order_components';
 import { bookProperty, isValid, olApi } from '../utils';
+
+const BookDetailsWithRedirect = withRedirect(BookDetails);
 
 class BookDetailsContainer extends React.Component
 {
@@ -16,13 +18,13 @@ class BookDetailsContainer extends React.Component
                 let data = response.data;
                 let book = {};
                 book[bookProperty.title] = data[bookProperty.title];
-                book[bookProperty.description] = data[bookProperty.description];
-                book[bookProperty.links] = data[bookProperty.links];
-                book[bookProperty.subjects] = data[bookProperty.subjects] || data.subjects;
                 book[bookProperty.coverId] = this.props.location.state[bookProperty.coverId];
                 book[bookProperty.author] = this.props.location.state[bookProperty.author];
                 book[bookProperty.year] = this.props.location.state[bookProperty.year];
-
+                book[bookProperty.publishers] = this.props.location.state[bookProperty.publishers];
+                book[bookProperty.links] = data[bookProperty.links];
+                book[bookProperty.description] = data[bookProperty.description];
+                book[bookProperty.subjects] = data[bookProperty.subjects] || data.subjects;
                 this.setState({ book });
             });
         }
@@ -30,12 +32,7 @@ class BookDetailsContainer extends React.Component
 
     render()
     {
-        if (!isValid(this.props.location.state))
-        {
-            return <Redirect to="/" />;
-        }
-
-        return <BookDetails book={ this.state.book } />;
+        return <BookDetailsWithRedirect redirectCondition={ !isValid(this.props.location.state) } redirectUrl="/" book={ this.state.book } />;
     }
 }
 

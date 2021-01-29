@@ -4,7 +4,6 @@
 {
     border: 5px solid $secondary-color;
     width: 100%;
-    height: 100%;
 }
 
 .links
@@ -22,9 +21,4 @@
             border-bottom: 1px solid $secondary-color;
         }
     }
-}
-
-.description
-{
-    white-space: pre-wrap;
 }
