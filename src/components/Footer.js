@@ -30,11 +30,11 @@ function Footer()
 
                         <Row>
 
-                            <Col xs={ 2 }>
+                            <Col xs={ 12 } lg={ 3 }>
                                 <p className="font-weight-bold">Address:</p>
                             </Col>
 
-                            <Col xs={ 10 }>
+                            <Col xs={ 12 } lg={ 9 }>
                                 <p>69 Abbey Rd, London, United Kingdom</p>
                             </Col>
 
@@ -42,11 +42,11 @@ function Footer()
 
                         <Row>
 
-                            <Col xs={ 2 }>
+                            <Col xs={ 12 } lg={ 3 }>
                                 <p className="font-weight-bold">Phone:</p>
                             </Col>
 
-                            <Col xs={ 10 }>
+                            <Col xs={ 12 } lg={ 9 }>
                                 <p>+44 1632 960948</p>
                             </Col>
 
@@ -54,11 +54,11 @@ function Footer()
 
                         <Row>
 
-                            <Col xs={ 2 }>
+                            <Col xs={ 12 } lg={ 3 }>
                                 <p className="font-weight-bold">E-mail:</p>
                             </Col>
 
-                            <Col xs={ 10 }>
+                            <Col xs={ 12 } lg={ 9 }>
                                 <p>openlibrary@ol.com</p>
                             </Col>
 

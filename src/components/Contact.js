@@ -31,7 +31,7 @@ function Contact(props)
                     <FormControl type="text" placeholder="Your message" as="textarea" rows="5" value={ props.message } onChange={ props.onMessageTextAreaChange } />
                 </InputGroup>
 
-                <Button type="submit" variant="" size="lg" block className="mx-auto my-4 w-25">Submit</Button>
+                <Button type="submit" variant="" size="lg" block className="mx-auto my-4">Submit</Button>
 
             </div>
 
