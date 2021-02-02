@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { Book, BookListFilterContainer, BookListSortContainer, BookListPaginationContainer } from '../components';
-import { bookProperty } from '../utils';
+import { Book, BookListFilterContainer, BookListSortContainer, BookListPaginationContainer } from '../../components';
+import { bookProperty } from '../../utils';
 
 function BookList(props)
 {

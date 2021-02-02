@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { paginateBookListByPageSize, paginateBookListByCurrentPage } from '../redux/actions';
-import { BookListPagination } from '../components';
-import { isNumber, pagination } from '../utils';
+import { paginateBookListByPageSize, paginateBookListByCurrentPage } from '../../../redux/actions';
+import { BookListPagination } from '../../../components';
+import { isNumber, pagination } from '../../../utils';
 
 class BookListPaginationContainer extends React.Component
 {

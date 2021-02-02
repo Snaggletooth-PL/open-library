@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Col } from 'react-bootstrap';
-import { bookProperty, coverSize, isValid, isUnsignedNumber, getCoverUrl } from '../utils';
-import '../styles/Book.scss';
+import { bookProperty, coverSize, isValid, isUnsignedNumber, getCoverUrl } from '../../utils';
+import '../../styles/Book.scss';
 
 function Book(props)
 {

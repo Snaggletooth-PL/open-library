@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, FormCheck, FormControl, InputGroup, Row } from 'react-bootstrap';
-import { TagList } from '../components';
+import { TagList } from '../../../components';
 
 function BookListFilter(props)
 {

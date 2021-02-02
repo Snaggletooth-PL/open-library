@@ -8,9 +8,9 @@ import
     filterBookListByYearRange,
     filterBookListBySubjects,
     paginateBookListByCurrentPage
-} from '../redux/actions';
-import { BookListFilter } from '../components';
-import { isValid, pagination } from '../utils';
+} from '../../../redux/actions';
+import { BookListFilter } from '../../../components';
+import { isValid, pagination } from '../../../utils';
 
 class BookListFilterContainer extends React.Component
 {

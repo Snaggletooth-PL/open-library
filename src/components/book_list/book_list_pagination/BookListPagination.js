@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
-import { DropdownMenu, Pagination } from '../components';
-import { pagination } from '../utils';
+import { DropdownMenu, Pagination } from '../../../components';
+import { pagination } from '../../../utils';
 
 function BookListPagination(props)
 {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap';
-import { PageHeader, TabList, TagList } from '../components';
-import { bookProperty, coverSize, isValid, isUnsignedNumber, isObject, getCoverUrl } from '../utils';
-import '../styles/BookDetails.scss';
+import { PageHeader, TabList, TagList } from '../../../components';
+import { bookProperty, coverSize, isValid, isUnsignedNumber, isObject, getCoverUrl } from '../../../utils';
+import '../../../styles/BookDetails.scss';
 
 function BookDetails(props)
 {

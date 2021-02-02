@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageHeader, SearchContainer } from '../components';
+import { PageHeader, SearchContainer } from '../../../components';
 
 function Home(props)
 {

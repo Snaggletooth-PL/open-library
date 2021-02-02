@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown, Form, FormControl, InputGroup } from 'react-bootstrap';
-import { DropdownMenu } from '../components';
-import { searchCategories } from '../utils';
+import { DropdownMenu } from '../../components';
+import { searchCategories } from '../../utils';
 
 function Search(props)
 {

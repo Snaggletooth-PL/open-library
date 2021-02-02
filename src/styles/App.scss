@@ -11,6 +11,19 @@
   flex-direction: column;
 }
 
+div.alert
+{
+  color: $primary-color;
+  background-color: $secondary-color;
+  border-color: darken($secondary-color, 5%);
+
+  button.close > span
+  {
+    color: $primary-color;
+    text-shadow: none;
+  }
+}
+
 div.input-group
 {
   border-radius: $xx-small-size;

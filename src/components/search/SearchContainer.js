@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList, paginateBookListByCurrentPage } from '../redux/actions';
-import { Search } from '../components';
-import { olApi, isValid, pagination } from '../utils';
+import { setBookSearchPhrase, setBookSearchCategory, fetchBookList, clearBookList, paginateBookListByCurrentPage } from '../../redux/actions';
+import { Search } from '../../components';
+import { olApi, isValid, pagination } from '../../utils';
 
 class SearchContainer extends React.Component
 {

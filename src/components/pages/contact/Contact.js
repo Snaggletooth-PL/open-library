@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
-import { PageHeader } from '../components';
+import { Alert, Button, Form, FormControl, InputGroup } from 'react-bootstrap';
+import { PageHeader } from '../../../components';
 
 function Contact(props)
 {
@@ -8,6 +8,8 @@ function Contact(props)
         <Form onSubmit={ props.onSubmit }>
 
             <PageHeader iconClassName="fas fa-phone" headerName="Contact" />
+
+            <Alert variant="" show={ props.isAlertShown } dismissible={ true } onClose={ props.onAlertClose }><span className="font-weight-bold">{ props.alertMessage }</span></Alert>
 
             <h4 className="text-center mb-3">We are looking forward to hearing from you!</h4>
 

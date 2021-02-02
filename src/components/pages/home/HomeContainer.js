@@ -1,10 +1,10 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { getFilteredBookList, getSortedBookList, getPaginatedBookList } from '../redux/selectors';
-import { BookList, Home } from '../components';
-import { withErrorMessage, withLoading } from './higher_order_components';
-import { isBoolean, isString } from '../utils';
+import { getFilteredBookList, getSortedBookList, getPaginatedBookList } from '../../../redux/selectors';
+import { BookList, Home } from '../../../components';
+import { withErrorMessage, withLoading } from '../../higher_order_components';
+import { isBoolean, isString } from '../../../utils';
 
 const BookListWithErrorHandlingAndLoading = compose(withErrorMessage, withLoading)(BookList);
 

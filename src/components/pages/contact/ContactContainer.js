@@ -1,11 +1,16 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
-import { Contact } from '../components';
-import { isValid } from '../utils';
+import { Contact } from '../../../components';
+import { isValid } from '../../../utils';
 
 class ContactContainer extends React.Component
 {
-    state = { userName: '', userEmail: '', message: '' };
+    state = { isAlertShown: false, alertMessage: '', userName: '', userEmail: '', message: '' };
+
+    onAlertClose = () =>
+    {
+        this.setState({ isAlertShown: false });
+    };
 
     onUserNameInputChange = (event) =>
     {
@@ -30,10 +35,10 @@ class ContactContainer extends React.Component
         {
             emailjs.send('service_7wj2odo', 'template_knk0hn6', this.state, 'user_ptFiJihrWKE4atmqh9AU9').then(() =>
             {
-                alert('Message sent successfully!');
+                this.setState({ isAlertShown: true, alertMessage: 'Message sent successfully!' });
             }).catch(() =>
             {
-                alert('Failed to send message!');
+                this.setState({ isAlertShown: true, alertMessage: 'Failed to send message!' });
             });
 
             this.setState({ userName: '', userEmail: '', message: '' });
@@ -42,8 +47,9 @@ class ContactContainer extends React.Component
 
     render()
     {
-        return <Contact onSubmit={ this.onSubmit } userName={ this.state.userName } onUserNameInputChange={ this.onUserNameInputChange } userEmail={ this.state.userEmail }
-            onUserEmailInputChange={ this.onUserEmailInputChange } message={ this.state.message } onMessageTextAreaChange={ this.onMessageTextAreaChange } />;
+        return <Contact onSubmit={ this.onSubmit } isAlertShown={ this.state.isAlertShown } alertMessage={ this.state.alertMessage } onAlertClose={ this.onAlertClose }
+            userName={ this.state.userName } onUserNameInputChange={ this.onUserNameInputChange } userEmail={ this.state.userEmail } onUserEmailInputChange={ this.onUserEmailInputChange }
+            message={ this.state.message } onMessageTextAreaChange={ this.onMessageTextAreaChange } />;
     }
 }
 

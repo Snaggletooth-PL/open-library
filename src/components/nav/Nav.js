@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
-import { NavList } from '../components';
-import '../styles/Nav.scss';
+import { NavList } from '../../components';
+import '../../styles/Nav.scss';
 
 function Nav()
 {

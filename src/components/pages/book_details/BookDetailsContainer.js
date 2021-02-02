@@ -1,7 +1,7 @@
 import React from 'react';
-import { BookDetails } from '../components';
-import { withRedirect } from '../components/higher_order_components';
-import { bookProperty, isValid, olApi } from '../utils';
+import { BookDetails } from '../../../components';
+import { withRedirect } from '../../higher_order_components';
+import { bookProperty, isValid, olApi } from '../../../utils';
 
 const BookDetailsWithRedirect = withRedirect(BookDetails);
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
-import { DropdownMenu } from '../components';
-import { sortKey, sortOrder } from '../utils';
+import { DropdownMenu } from '../../../components';
+import { sortKey, sortOrder } from '../../../utils';
 
 function BookListSort(props)
 {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortBookListByKey, sortBookListByOrder } from '../redux/actions';
-import { BookListSort } from '../components';
+import { sortBookListByKey, sortBookListByOrder } from '../../../redux/actions';
+import { BookListSort } from '../../../components';
 
 class BookListSortContainer extends React.Component
 {
