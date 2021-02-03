@@ -22,3 +22,71 @@
     overflow: hidden;
     border-left: 1px solid $primary-color;
 }
+
+div.alert
+{
+    color: $primary-color;
+    background-color: $secondary-color;
+    border-color: darken($secondary-color, 5%);
+
+    button.close > span
+    {
+        color: $primary-color;
+        text-shadow: none;
+    }
+}
+
+div.input-group
+{
+    border-radius: $xx-small-size;
+    transition: box-shadow $short-duration ease-in-out;
+
+    &:hover, &:focus-within
+    {
+        box-shadow: 0 0 $large-size (-$x-small-size) $primary-color;
+    }
+}
+
+input.form-control, textarea.form-control
+{
+    background-color: lighten($secondary-color, 15%);
+    border-color: darken($secondary-color, 5%);
+    color: $primary-color;
+
+    &:focus
+    {
+        background-color: lighten($secondary-color, 20%);
+        border-color: darken($secondary-color, 15%);
+        color: $primary-color;
+        box-shadow: none;
+    }
+
+    &::placeholder
+    {
+        color: $primary-color;
+        opacity: 0.5;
+    }
+}
+
+span.input-group-text, button.btn:not(.btn-link)
+{
+    background-color: $secondary-color;
+    border-color: darken($secondary-color, 5%);
+    color: $primary-color;
+}
+
+button.btn:not(.btn-link):hover
+{
+    background-color: darken($secondary-color, 5%);
+    color: $primary-color;
+}
+
+button.btn
+{
+    font-family: $secondary-font-family;
+    
+    &:hover, &:focus
+    {
+        box-shadow: none;
+    }
+}

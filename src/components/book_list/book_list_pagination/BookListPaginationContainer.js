@@ -31,7 +31,7 @@ class BookListPaginationContainer extends React.Component
 
     render()
     {
-        return <BookListPagination numberOfPaginationItems={ Math.ceil(this.props.currentNumberOfBooks / this.props.bookListPagination.pageSize) }
+        return <BookListPagination numberOfPaginationItems={ Math.ceil(this.props.numberOfFilteredBooks / this.props.bookListPagination.pageSize) }
             pageSize={ this.props.bookListPagination.pageSize } onPageSizeDropdownMenuItemClick={ this.onPageSizeDropdownMenuItemClick }
             currentPage={ this.props.bookListPagination.currentPage } onPageNumberPaginationItemClick={ this.onPageNumberPaginationItemClick } />;
     }
@@ -42,10 +42,6 @@ const mapStateToProps = (state) =>
     return { bookListPagination: state.bookListPagination };
 };
 
-const mapDispatchToProps =
-{
-    paginateBookListByPageSize,
-    paginateBookListByCurrentPage
-};
+const mapDispatchToProps = { paginateBookListByPageSize, paginateBookListByCurrentPage };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookListPaginationContainer);

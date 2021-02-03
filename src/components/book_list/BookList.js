@@ -18,7 +18,7 @@ function BookList(props)
 
                     <BookListSortContainer />
 
-                    <BookListPaginationContainer currentNumberOfBooks={ props.currentNumberOfBooks } />
+                    <BookListPaginationContainer numberOfFilteredBooks={ props.numberOfFilteredBooks } />
 
                 </Row>
 

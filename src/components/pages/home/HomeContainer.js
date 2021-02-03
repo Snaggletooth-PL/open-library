@@ -10,7 +10,7 @@ const BookListWithErrorHandlingAndLoading = compose(withErrorMessage, withLoadin
 
 class HomeContainer extends React.Component
 {
-    state = { isSearching: false, errorMessage: (this.props.bookList.length) ? '' : ' ' };
+    state = { isSearching: false, errorMessage: (this.props.numberOfFoundBooks) ? '' : ' ' };
 
     setSearching = (isSearching) =>
     {
@@ -24,7 +24,7 @@ class HomeContainer extends React.Component
 
     render()
     {
-        return <Home setSearching={ this.setSearching } setErrorMessage={ this.setErrorMessage } bookList={ <BookListWithErrorHandlingAndLoading errorMessage={ this.state.errorMessage } isLoading={ this.state.isSearching } list={ this.props.bookList } currentNumberOfBooks={ this.props.currentNumberOfBooks } /> } />;
+        return <Home setSearching={ this.setSearching } setErrorMessage={ this.setErrorMessage } bookList={ <BookListWithErrorHandlingAndLoading errorMessage={ this.state.errorMessage } isLoading={ this.state.isSearching } list={ this.props.currentBookList } numberOfFilteredBooks={ this.props.numberOfFilteredBooks } /> } />;
     }
 }
 
@@ -32,7 +32,13 @@ const mapStateToProps = (state) =>
 {
     let filteredBookList = getFilteredBookList(state.bookList, state.bookListFilter);
 
-    return { bookList: getPaginatedBookList(getSortedBookList(filteredBookList, state.bookListSort), state.bookListPagination), currentNumberOfBooks: filteredBookList.length };
+    return (
+        {
+            currentBookList: getPaginatedBookList(getSortedBookList(filteredBookList, state.bookListSort), state.bookListPagination),
+            numberOfFoundBooks: state.bookList.length,
+            numberOfFilteredBooks: filteredBookList.length
+        }
+    );
 };
 
 export default connect(mapStateToProps)(HomeContainer);

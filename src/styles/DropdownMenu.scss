@@ -2,21 +2,21 @@
 
 .caret-off
 {
-  &::before, &::after
-  {
-    display: none;
-  }
+    &::before, &::after
+    {
+        display: none;
+    }
 }
 
 div.dropdown-menu, a.dropdown-item
 {
-  background-color: $secondary-color;
-  border-color: darken($secondary-color, 5%);
-  color: $primary-color;
+    background-color: $secondary-color;
+    border-color: darken($secondary-color, 5%);
+    color: $primary-color;
 }
 
 a.dropdown-item.active, a.dropdown-item:hover
 {
-  background-color: darken($secondary-color, 5%);
-  color: $primary-color;
+    background-color: darken($secondary-color, 5%);
+    color: $primary-color;
 }

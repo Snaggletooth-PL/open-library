@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pagination as BootstrapPagination } from 'react-bootstrap';
-import { isNumber, pagination } from '../utils';
-import '../styles/Pagination.scss'
+import { isNumber, pagination } from '../../../utils';
+import '../../../styles/Pagination.scss'
 
 function Pagination(props)
 {
@@ -22,7 +22,7 @@ function Pagination(props)
 
     return (
         <nav className="align-self-center align-middle mx-auto mx-md-0 mb-3 mb-md-0 mr-md-3">
-            <BootstrapPagination size="sm" className="m-0">
+            <BootstrapPagination size="sm" className="flex-wrap m-0">
                 <BootstrapPagination.Item key='paginationItemPrev' className={ (props.currentPaginationItem <= pagination.firstPage) ? 'disabled' : '' } href="#"
                     onClick={ props.onPaginationItemClick }>{ pagination.previousPage }</BootstrapPagination.Item>
                 { paginationItems }

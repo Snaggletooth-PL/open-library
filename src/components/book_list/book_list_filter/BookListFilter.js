@@ -12,12 +12,33 @@ function BookListFilter(props)
             </Row>
 
             <Row className="mx-auto mb-3">
-                <FormCheck type="checkbox" label="Show only books with known author" className="mx-1 m-lg-0" checked={ props.onlyWithAuthorAvailable }
-                    onChange={ props.onOnlyWithAuthorAvailableCheckboxChange } />
-                <FormCheck type="checkbox" label="Show only books with cover" className="mx-1 m-lg-0" checked={ props.onlyWithCoverAvailable }
-                    onChange={ props.onlyWithCoverAvailableCheckboxChange } />
-                <FormCheck type="checkbox" label="Show only books with known year" className="mx-1 m-lg-0" checked={ props.onlyWithYearAvailable }
-                    onChange={ props.onlyWithYearAvailableCheckboxChange } />
+                <FormCheck className="mx-1 m-lg-0">
+                    <FormCheck.Label>
+
+                        <FormCheck.Input type="checkbox" checked={ props.onlyWithAuthorAvailable } onChange={ props.onOnlyWithAuthorAvailableCheckboxChange } />
+
+                        <span>Show only books with known author</span>
+
+                    </FormCheck.Label>
+                </FormCheck>
+                <FormCheck className="mx-1 m-lg-0">
+                    <FormCheck.Label>
+
+                        <FormCheck.Input type="checkbox" checked={ props.onlyWithCoverAvailable } onChange={ props.onlyWithCoverAvailableCheckboxChange } />
+
+                        <span>Show only books with cover</span>
+
+                    </FormCheck.Label>
+                </FormCheck>
+                <FormCheck className="mx-1 m-lg-0">
+                    <FormCheck.Label>
+
+                        <FormCheck.Input type="checkbox" checked={ props.onlyWithYearAvailable } onChange={ props.onlyWithYearAvailableCheckboxChange } />
+
+                        <span>Show only books with known year</span>
+
+                    </FormCheck.Label>
+                </FormCheck>
             </Row>
 
             <div className="horizontal-divider"></div>
@@ -34,7 +55,7 @@ function BookListFilter(props)
 
                     <FormControl type="number" value={ props.minYear } onChange={ props.onMinYearInputChange } />
 
-                    <InputGroup.Append>
+                    <InputGroup.Append className="input-group-prepend">
                         <InputGroup.Text>to</InputGroup.Text>
                     </InputGroup.Append>
 

@@ -26,10 +26,6 @@ const mapStateToProps = (state) =>
     return { bookListSort: state.bookListSort };
 };
 
-const mapDispatchToProps =
-{
-    sortBookListByKey,
-    sortBookListByOrder
-};
+const mapDispatchToProps = { sortBookListByKey, sortBookListByOrder };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookListSortContainer);
